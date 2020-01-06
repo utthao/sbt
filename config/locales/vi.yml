@@ -1,0 +1,23 @@
+vi:
+  layouts:
+    header:
+      help: "Tro giup"
+      login: "Dang nhap"
+      signup: "Dang ky"
+    application:
+      title: "VI "
+      home: "Trang chu"
+      vi: "Tieng Viet"
+      en: "English"
+  hello: "Xin chao"
+  static_pages:
+    home:
+      title: "Trang chu"
+      home: "Trang chu"
+      welcome: "Chao mung den voi Booking tour APP"
+    help:
+      help: "Tro giup"
+      help2: "Trang giup do"
+      help3: "Hello im helper"
+  base:
+    title: "PAT vi"
