@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.bigint :tour_id
       t.text :title
       t.text :content
-      t.string :status
+      t.integer :status
 
       t.timestamps
     end

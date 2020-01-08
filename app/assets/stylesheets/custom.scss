@@ -19,6 +19,7 @@ textarea {
   margin-bottom: 10px;
 }
 
+
 /* header */
 #logo {
   float: left;
@@ -33,4 +34,78 @@ textarea {
     color: $fff;
     text-decoration: none;
   }
+}
+
+
+
+/* tours */
+.tour_detail{
+  h1{
+    text-transform: uppercase;
+  }
+}
+
+.tours {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .title {
+    display: block;
+    margin:0 auto;
+    float:center;
+    font-size: 25px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .rate {
+    display: block;
+    margin:0 auto;
+    float:center;
+    color: gold;
+    font-size: 20px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .postedby {
+    color: $gray-light;
+    display: block;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+/* tour detail */
+.tour_detail{
+  .image{
+    height:400px;
+    width:700px;
+    border: 1px solid;
+  }
+}
+
+/*footer */
+footer{
+  background-color: black;
+  color: white;
+}
+
+
+.image{
+  height:300px;
+  width:500px;
+  border: 1px solid;
 }

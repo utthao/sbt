@@ -1,14 +1,29 @@
 <header class="navbar navbar-fixed-top
 navbar-inverse">
   <div class="container">
-    <%= link_to "sample app", "#", id: "logo" %>
-	<nav>
-	  <ul class="nav navbar-nav navbar-right">
-	    <li><%= link_to t(".home"), root_path %></li>
-	    <li><%= link_to t(".help"), help_path %></li>
-	    <li><%= link_to t(".login"), "#" %></li>
-      <li><%= link_to t(".signup"), "#" %></li>
-	  </ul>
+  <%= link_to "Booking Tour", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t(".home"), root_path %></li>
+        <li><%= link_to t(".help"), help_path %></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t ".account" %> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(".profile"), root_path %></li>
+              <li><%= link_to t(".setting"), root_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t(".logout"), sessions_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+          <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to t(".login"), sessions_path %></li>
+            <li><%= link_to t(".signin"), "#" %></li>
+        <% end %>
+      </ul>
     </nav>
   </div>
 </header>

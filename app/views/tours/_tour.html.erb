@@ -1,0 +1,22 @@
+<div class="col-md-6">
+  <li id="tours-<%= tour.id %>">
+    <div class="image">
+
+    </div>
+    <span class="title">
+      <%= link_to tour.title, tour %>
+    </span>
+    <span class="rate">
+      <% if tour.avg_rate.nil? %>
+        <%= t(".norate")%>
+      <% else %>
+        <% for i in 0..(tour.avg_rate.round-1)%>
+          <span class="fa fa-star checked"></span>
+        <% end %>
+      <% end %>
+    </span>
+    <span class="postedby">
+       <%= t(".postedby") %><%= tour.account.email %>.
+    </span>
+  </li>
+</div>

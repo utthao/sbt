@@ -5,7 +5,7 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :phone_number
       t.string :avatar
-      t.string :active_status
+      t.integer :active_status
       t.string :activation_digest
       t.string :remember_digest
       t.string :password_digest

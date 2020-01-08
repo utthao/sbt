@@ -9,7 +9,7 @@ class CreateRattings < ActiveRecord::Migration[5.2]
       t.bigint :booking_id
       t.float :star
       t.text :comment
-      t.string :status
+      t.integer :status
 
       t.timestamps
     end

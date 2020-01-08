@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.string "email"
     t.string "phone_number"
     t.string "avatar"
-    t.string "active_status"
+    t.integer "active_status"
     t.string "activation_digest"
     t.string "remember_digest"
     t.string "password_digest"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.bigint "tour_id"
     t.integer "amount"
     t.bigint "total_price"
-    t.string "status"
+    t.integer "status"
     t.string "rated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "account_id"
     t.bigint "review_id"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_likes_on_account_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.bigint "booking_id"
     t.float "star"
     t.text "comment"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_rattings_on_account_id"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.bigint "tour_id"
     t.text "title"
     t.text "content"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_reviews_on_account_id"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.datetime "end_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id", "created_at"], name: "index_tours_on_account_id_and_created_at"
     t.index ["account_id"], name: "index_tours_on_account_id"
     t.index ["category_id"], name: "index_tours_on_category_id"
   end

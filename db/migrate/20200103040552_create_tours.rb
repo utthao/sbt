@@ -15,8 +15,8 @@ class CreateTours < ActiveRecord::Migration[5.2]
       t.integer :status
       t.datetime :start_day
       t.datetime :end_day
-
       t.timestamps
     end
+    add_index :tours, [:account_id, :created_at]
   end
 end

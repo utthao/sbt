@@ -7,7 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.bigint :tour_id
       t.integer :amount
       t.bigint :total_price
-      t.string :status
+      t.integer :status
       t.string :rated
 
       t.timestamps

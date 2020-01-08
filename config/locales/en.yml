@@ -1,21 +1,35 @@
-en:
+vi:
   layouts:
     header:
       help: "Help"
-      login: "Login"
-      signup: "Signup"
+      login: "Log in"
+      signup: "Sign up"
+      account: "More"
+      signin: "Signup"
     application:
-      title: "ENG"
-      vi: "Tieng Viet"
+      title: "VI "
+      home: "Home"
+      vi: "Tiếng Việt"
       en: "English"
-  hello: "Hello world"
+  hello: "Hello"
   static_pages:
     home:
-      home: "Homepage"
-      welcome: "Welcome to Booking tour App"
+      title: "Home"
+      home: "Home"
+      welcome: "This is cover Booking tour APP"
     help:
-      help: "Help"
-      help2: "Help page"
-      help3: "Hello im helper"
   base:
-    title: "PAT en"
+    title: "Booking App eng"
+  tours:
+    tour:
+      norate: "No Rate"
+      postedby: "Posted by "
+  sessions:
+    index:
+      login: "Login"
+      email: "Email "
+      password: "Password"
+      newaccount: "Sign up "
+      signin: "here"
+      remember: "Remember me"
+      forgot: "Forgot password?"

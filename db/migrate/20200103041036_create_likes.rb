@@ -5,7 +5,7 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.references :review, null: false, foreign_key: true
       t.bigint :account_id
       t.bigint :review_id
-      t.string :status
+      t.integer :status
 
       t.timestamps
     end

@@ -1,0 +1,49 @@
+<% provide(:title, @tour.title) %>
+<div class="row tour_detail">
+  <aside class="col-md-12">
+    <section class="">
+      <h1>
+        <%= @tour.title %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <div class="image col-md-12">
+        images slide
+    </div>
+    <div class="col-md-12">
+        <h3><%= @tour.content %></h3>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="col-md-12">
+      <h3>Price: <%= @tour.price %></h3>
+    </div>
+    <div class="col-md-12">
+      <h4>Start day: <%= @tour.start_day %></h3>
+    </div>
+    <div class="col-md-12">
+      <h4>Start day: <%= @tour.end_day %></h3>
+    </div>
+    <div class="col-md-12">
+      <h4>Host by: <%= @tour.account.name %></h3>
+    </div>
+    <div class="col-md-12 ">
+      <%= form_for(@booking, url: "#") do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :amount, "People amount:" %>
+        <%= f.text_field :amount, class: 'form-control' %>
+
+        <%= f.submit "Book this!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="reviews col-md-6">
+    <h2>Review about this tour(<%= @tour.reviews.count %>)</h2>
+    <%= render @review_items %>
+  </div>
+  <div class="reviews col-md-6">
+    <h2>Comments o day<h2>
+  </div>
+</div>

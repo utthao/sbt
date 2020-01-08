@@ -1,0 +1,12 @@
+<div class="col-md-12">
+  <li id="reviews-<%= review.id %>">
+    <span class="content">
+      <%= link_to review.title, review %>
+    </span>
+    <span class="img">
+    </span>
+    <span class="postedby">
+      Posted by <%= review.account.email %>.
+    </span>
+  </li>
+</div>
