@@ -1,0 +1,23 @@
+<% provide :title, t("tour_manage") %>
+  <h1 class = "text-center" ><%= t("tour_manage") %></h1>
+  <div class="col-md-12">
+    <%= link_to "Aasdasd", new_tour_path %>
+    <table class = "table table-responsive-sm table-hover table-outline mb-0">
+      <thead class="thead-light">
+        <tr>
+          <th class = "text-center"></th>
+          <th class = "text-center"><%= t"title" %></th>
+          <th class = "text-center"><%= t"postedby" %></th>
+          <th class = "text-center"><%= t"start_day" %></th>
+          <th class = "text-center"><%= t"end_day" %></th>
+          <th class = "text-center"></th>
+          <th class = "text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "tour_row", collection: @tour_rows %>
+      </tbody>
+    </table>
+    <%= will_paginate @tour_rows %>
+  </div>
+

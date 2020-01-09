@@ -1,4 +1,13 @@
 vi:
+  tour_manage: "Quản lí tour"
+  title: "Tiêu đề: "
+  content: "Nội dung: "
+  postedby: "Người đăng: "
+  start_day: "Ngày bắt đầu: "
+  end_day: "Ngày kết thúc: "
+  price: "Giá: "
+  delete: "Xóa"
+  edit: "Chỉnh sửa"
   layouts:
     header:
       help: "Trợ giúp"
@@ -24,6 +33,8 @@ vi:
     tour:
       norate: "Không có đánh giá"
       postedby: "Đăng bởi "
+    new:
+      tour_add: "Đăng Tour"
   sessions:
     index:
       login: "Đăng nhập"

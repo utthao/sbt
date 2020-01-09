@@ -13,6 +13,10 @@ module SessionsHelper
     !current_account.nil?
   end
 
+  def admin_acount?
+    !current_account.nil? && current_account.role == 1
+  end
+
   def current_account?(account)
     account == current_account
   end
@@ -43,6 +47,6 @@ module SessionsHelper
 
   def redirect_back_or(default)
     redirect_to(root_path || default)
-    session.delete(root_pathen)
+    session.delete(root_path)
   end
 end

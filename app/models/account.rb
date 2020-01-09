@@ -22,8 +22,7 @@ class Account < ApplicationRecord
     {minimum: Settings.password_min}, allow_nil: true
   validates :password, presence: true, length:
     {minimum: Settings.password_min}, on: :reset_password
-
-  enum role: {admin: 0, owner: 1, user: 2}
+  # enum role: {admin: 0, owner: 1, user: 2}
 
   class << self
     def digest(string)
