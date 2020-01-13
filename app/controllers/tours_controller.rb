@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :admin_account,  only: [:destroy, :index, :new]
-  before_action :load_categories, only: [:new, :create]
+  before_action :load_categories, only: [:new, :create, :edit]
 
   def show
     @tour = Tour.find_by id: params[:id]
@@ -14,18 +14,29 @@ class ToursController < ApplicationController
 
   def new
     @tour = current_account.tours.build
-    @categories = Category.all
+    @tour.images.build
   end
 
   def create
-    @tour = Tour.new(tour_params)
+    @tour = Tour.new
+    @tour.images.build(tour_params)
     @tour.account_id = current_account.id
+    @tour.status = 1
     if @tour.save
+      insert_data
       flash[:info] = "DONE!"
       redirect_to tours_path
     else
       render :new
     end
+  end
+
+  def edit
+    @tour = Tour.find(params[:id])
+  end
+
+  def update
+
   end
 
   def destroy
@@ -45,6 +56,17 @@ class ToursController < ApplicationController
   end
 
   def tour_params
-    params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price)
+    params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price, images_attributes: [:name,:image,:tour_id ])
+  end
+
+  def insert_data
+    ActiveRecord::Base.transaction do
+      params[:images]["path"].each do |image|
+        @image = @tour.images.build
+        @image.tour_id = @tour.id
+        @image.path = image
+        @image.save
+      end
+    end
   end
 end

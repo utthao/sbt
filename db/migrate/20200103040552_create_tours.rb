@@ -11,7 +11,6 @@ class CreateTours < ActiveRecord::Migration[5.2]
       t.float :avg_rate
       t.integer :rate_amount
       t.bigint :price
-      t.string :integer
       t.integer :status
       t.datetime :start_day
       t.datetime :end_day

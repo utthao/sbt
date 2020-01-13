@@ -10,7 +10,7 @@
       <% if tour.avg_rate.nil? %>
         <%= t(".norate")%>
       <% else %>
-        <% for i in 0..(tour.avg_rate.round-1)%>
+        <% for i in 0.1..(tour.avg_rate.count-1)%>
           <span class="fa fa-star checked"></span>
         <% end %>
       <% end %>

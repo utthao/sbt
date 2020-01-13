@@ -8,7 +8,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "bcrypt", ">=3.1.11"
 gem "bootstrap-will_paginate", ">=1.0.0"
 gem "config"
-gem 'bootstrap-sass'
+gem "bootstrap-sass"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "jbuilder", "~> 2.5"
@@ -25,8 +25,8 @@ gem "uglifier", ">= 1.3.0"
 gem "rails-controller-testing"
 gem "faker", "1.7.3"
 gem "will_paginate", ">=3.1.7"
-gem 'carrierwave', '>=1.2.2'
-gem 'mini_magick',  '>=4.7.0'
+gem "carrierwave"
+gem "mini_magick",  ">=4.7.0"
 gem "figaro"
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -63,5 +63,5 @@ group :test do
 end
 group :production do
   gem "rails_12factor", "0.0.2"
-  gem 'fog', '1.42'
+  gem "fog", "1.42"
 end

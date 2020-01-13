@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 2020_01_03_041213) do
     t.float "avg_rate"
     t.integer "rate_amount"
     t.bigint "price"
-    t.string "integer"
     t.integer "status"
     t.datetime "start_day"
     t.datetime "end_day"

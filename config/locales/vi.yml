@@ -6,8 +6,10 @@ vi:
   start_day: "Ngày bắt đầu: "
   end_day: "Ngày kết thúc: "
   price: "Giá: "
+  image: "Hình ảnh: "
   delete: "Xóa"
   edit: "Chỉnh sửa"
+  status: "Trạng thái"
   layouts:
     header:
       help: "Trợ giúp"

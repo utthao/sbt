@@ -1,5 +1,5 @@
 <% provide :title, t("tour_manage") %>
-<h1 class = "text-center" ><%= t(".tour_add") %></h1>
+<h1 class = "text-center" ><%= t(".tour_edit") %></h1>
 <%= form_for(@tour) do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="dropdown">
@@ -35,12 +35,14 @@
     </div>
     <div class="field col-md-6">
       <%= f.label :image, t("image") %>
-      <%= f.fields_for :images_attributes do |images_fields| %>
-        Name  : <%= images_fields.text_field :name %>
-        Image: <%= images_fields.file_field :image,:multiple => true %>
-      <% end %>
+      <%= f.file_field :path, multiple: true, name: "images[path][]", class: "form-control"%>
     </div>
   </div>
   <br>
-  <%= f.submit "Post", class: "btn btn-primary right" %>
+  <div class="row">
+    <div class="field col-md-6">
+        <%= f.label :status, t("status") %>
+    </div>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary right" %>
 <% end %>
