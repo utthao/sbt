@@ -20,8 +20,11 @@ class Account < ApplicationRecord
   validates :phone_number, format: {with: VALID_PHONE_REGEX}, allow_blank: true
   has_secure_password
   validates :password, presence: true, length:
-    {minimum: Settings.password_min}, allow_nil: true, , on: :reset_password
-  # enum role: {admin: 0, owner: 1, user: 2}
+    # {minimum: Settings.password_min}, allow_nil: true, , on: :reset_password
+    {minimum: Settings.password_min}, allow_nil: true
+  validates :password, presence: true, length:
+    {minimum: Settings.password_min}, on: :reset_password
+  enum role: {admin: 0, user: 1}
 
   class << self
     def digest(string)

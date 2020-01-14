@@ -2,23 +2,19 @@
 @import 'bootstrap';
 @import 'colors';
 
-/*universal*/
+/* universal */
 body {
   padding-top: 60px;
 }
-
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
-
 .center {
   text-align: center;
 }
-
 .center h1 {
   margin-bottom: 10px;
 }
@@ -79,8 +75,4 @@ input {
   .form-control {
     color: $state-danger-text;
   }
-}
-
-.translation_missing{
-  color: $yellow;
 }

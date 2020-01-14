@@ -6,7 +6,7 @@ ruby "2.5.1"
 gem "bcrypt", ">=3.1.11"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-will_paginate", ">=1.0.0"
-gem 'bootstrap-sass'
+gem "bootstrap-sass"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "jbuilder", "~> 2.5"
@@ -21,6 +21,7 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "faker", "1.7.3"
 gem "figaro"
+gem "will_paginate", "~> 3.1", ">= 3.1.6"
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -44,5 +45,5 @@ end
 
 group :production do
   gem "rails_12factor", "0.0.2"
-  gem 'fog', '1.42'
+  gem "fog", "1.42"
 end

@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::Base
+  class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :set_locale
 
   private
@@ -11,5 +12,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def verify_admin
+    redirect_to(root_url) unless current_account.admin?
   end
 end
