@@ -1,0 +1,21 @@
+en:
+  layouts:
+    header:
+      help: "Help"
+      login: "Login"
+      signup: "Signup"
+    application:
+      title: "ENG"
+      vi: "Tieng Viet"
+      en: "English"
+  hello: "Hello world"
+  static_pages:
+    home:
+      home: "Homepage"
+      welcome: "Welcome to Booking tour App"
+    help:
+      help: "Help"
+      help2: "Help page"
+      help3: "Hello im helper"
+  base:
+    title: "PAT en"
