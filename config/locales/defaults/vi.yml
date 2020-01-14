@@ -2,6 +2,23 @@ vi:
   base_title: Framgia Booking Tour
 
   title: Framgia Booking Tours
-  home: Trang chủ
-  login: Đăng nhập
-  signup: Đăng ký
+  english: Tiếng Anh
+  vietnamese: Tiếng Việt
+  layouts:
+    header:
+      home: Trang chủ
+      login: Đăng nhập
+      signup: Đăng ký
+      account: Tài Khoản
+      profile: Hồ sơ
+      setting: Cài Đặt
+      logout: Đăng Xuất
+      users: Người dùng
+  accounts:
+    create_account: "Tạo mới tài khoản thành công"
+    edit_account: "chỉnh sửa thông tin thành công"
+  sessions:
+    create_fail: "Email/Password không đúng"
+  shared:
+    error_messages:
+      content_error: "Biểu mẫu này có %{error} lỗi"
