@@ -10,7 +10,7 @@ class ToursController < ApplicationController
   end
 
   def index
-    @tour_rows = Tour.where(status: 1).paginate(page: params[:page], per_page: 10)
+    @tour_rows = Tour.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -32,11 +32,17 @@ class ToursController < ApplicationController
   end
 
   def edit
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by id: params[:id]
   end
 
   def update
-
+    @tour = Tour.find(params[:id])
+    if @tour.update_attributes(tour_params_edit)
+      flash[:success] = "DONE!"
+      redirect_to tours_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -57,6 +63,10 @@ class ToursController < ApplicationController
 
   def tour_params
     params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price, images: [:id, :tour_id, :path])
+  end
+
+  def tour_params_edit
+    params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price, :status, images: [:id, :tour_id, :path])
   end
 
   def insert_data

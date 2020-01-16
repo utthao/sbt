@@ -7,4 +7,9 @@ module ToursHelper
   def image_home tour
     tour.images.first.path
   end
+
+  def edit_status
+    [{id: "unvisible", name: t("unvisible")},
+     {id: "visible", name: t("visible")}]
+  end
 end

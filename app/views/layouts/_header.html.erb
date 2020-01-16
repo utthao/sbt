@@ -21,6 +21,7 @@ navbar-inverse">
           <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
           <% if current_account.role==0 %>
             <li><%= link_to t("tour_manage"), tours_path %></li>
+            <li><%= link_to t("category_manage"), categories_path %></li>
           <% end %>
           <% else %>
             <li><%= link_to t(".login"), sessions_path %></li>

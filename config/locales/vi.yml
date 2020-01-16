@@ -1,5 +1,6 @@
 vi:
-  tour_manage: "Quản lí tour"
+  tour_manage: "QL tour"
+  category_manage: "QL địa điểm"
   title: "Tiêu đề: "
   content: "Nội dung: "
   category: "Địa điểm"
@@ -13,6 +14,8 @@ vi:
   edit: "Chỉnh sửa"
   status: "Trạng thái"
   bookthis: "Book this!"
+  visible: "Hiện"
+  unvisible: "Ẩn"
   layouts:
     header:
       help: "Trợ giúp"
