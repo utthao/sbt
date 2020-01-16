@@ -1,9 +1,8 @@
 class Image < ApplicationRecord
   after_destroy :remove_id_directory
+  belongs_to :tour
 
-  belongs_to :tours
-  mount_uploader :path, ::ImageUploader
-  belongs_to :object,polymorphic: true
+  mount_uploader :path, ImageUploader
 
   protected
     def remove_id_directory

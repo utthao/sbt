@@ -1,7 +1,7 @@
 <% provide :title, t("tour_manage") %>
   <h1 class = "text-center" ><%= t("tour_manage") %></h1>
   <div class="col-md-12">
-    <%= link_to "Aasdasd", new_tour_path %>
+    <%= link_to t("add"), new_tour_path, class: "f30-bold"%>
     <table class = "table table-responsive-sm table-hover table-outline mb-0">
       <thead class="thead-light">
         <tr>
@@ -20,4 +20,3 @@
     </table>
     <%= will_paginate @tour_rows %>
   </div>
-

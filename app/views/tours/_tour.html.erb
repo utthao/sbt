@@ -1,7 +1,8 @@
+<%= link_to tour do %>
 <div class="col-md-6">
   <li id="tours-<%= tour.id %>">
     <div class="image">
-
+      <img class="image-home" src="<%= image_home(tour) %>">
     </div>
     <span class="title">
       <%= link_to tour.title, tour %>
@@ -20,3 +21,4 @@
     </span>
   </li>
 </div>
+<% end %>

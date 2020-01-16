@@ -2,14 +2,17 @@ vi:
   tour_manage: "Quản lí tour"
   title: "Tiêu đề: "
   content: "Nội dung: "
+  category: "Địa điểm"
   postedby: "Người đăng: "
   start_day: "Ngày bắt đầu: "
   end_day: "Ngày kết thúc: "
   price: "Giá: "
   image: "Hình ảnh: "
+  add: "Tạo mới"
   delete: "Xóa"
   edit: "Chỉnh sửa"
   status: "Trạng thái"
+  bookthis: "Book this!"
   layouts:
     header:
       help: "Trợ giúp"
@@ -37,6 +40,9 @@ vi:
       postedby: "Đăng bởi "
     new:
       tour_add: "Đăng Tour"
+    show:
+      reviewhere: "Bài đánh giá"
+      commenthere: "Bình luận"
   sessions:
     index:
       login: "Đăng nhập"

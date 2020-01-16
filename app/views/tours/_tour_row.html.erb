@@ -4,6 +4,6 @@
   <td class = "text-center"><%= tour_row.account.email %></td>
   <td class = "text-center"><%= tour_row.start_day %></td>
   <td class = "text-center"><%= tour_row.end_day %></td>
-  <td class = "text-center"><%= link_to "Delete", tour_row, method: :delete, data: { confirm: "Sure?" } %></td>
-  <td class = "text-center"><%= "Edit" %></td>
+  <td class = "text-center"><%= link_to t("delete"), tour_row, method: :delete, data: { confirm: "Sure?" } %></td>
+  <td class = "text-center"><%= t("edit") %></td>
 </tr>

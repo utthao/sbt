@@ -6,6 +6,7 @@ class ToursController < ApplicationController
     @tour = Tour.find_by id: params[:id]
     @review_items = Review.all.paginate(page: params[:page], per_page: 6)
     @booking = Booking.new
+    @images = @tour.images
   end
 
   def index
@@ -14,16 +15,15 @@ class ToursController < ApplicationController
 
   def new
     @tour = current_account.tours.build
-    @tour.images.build
+    @images = @tour.images.build
   end
 
   def create
-    @tour = Tour.new
-    @tour.images.build(tour_params)
+    @tour = Tour.new(tour_params)
     @tour.account_id = current_account.id
     @tour.status = 1
     if @tour.save
-      insert_data
+     insert_data
       flash[:info] = "DONE!"
       redirect_to tours_path
     else
@@ -56,17 +56,14 @@ class ToursController < ApplicationController
   end
 
   def tour_params
-    params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price, images_attributes: [:name,:image,:tour_id ])
+    params.require(:tour).permit(:category_id, :title, :content, :start_day, :end_day, :price, images: [:id, :tour_id, :path])
   end
 
   def insert_data
     ActiveRecord::Base.transaction do
-      params[:images]["path"].each do |image|
-        @image = @tour.images.build
-        @image.tour_id = @tour.id
-        @image.path = image
-        @image.save
-      end
+       params[:images][:path].each do |a|
+          @tour.images.create! path: a
+        end
     end
   end
 end

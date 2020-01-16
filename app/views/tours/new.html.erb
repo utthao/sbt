@@ -35,9 +35,8 @@
     </div>
     <div class="field col-md-6">
       <%= f.label :image, t("image") %>
-      <%= f.fields_for :images_attributes do |images_fields| %>
-        Name  : <%= images_fields.text_field :name %>
-        Image: <%= images_fields.file_field :image,:multiple => true %>
+      <%= f.fields_for :images do |p| %>
+          <%= p.file_field :path, multiple: true, name: "images[path][]" %>
       <% end %>
     </div>
   </div>
