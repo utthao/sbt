@@ -14,7 +14,7 @@ module SessionsHelper
   end
 
   def admin_acount?
-    !current_account.nil? && current_account.role == 1
+    !current_account.nil? && current_account.role == "admin"
   end
 
   def current_account?(account)

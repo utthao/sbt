@@ -16,6 +16,7 @@ vi:
   bookthis: "Book this!"
   visible: "Hiện"
   unvisible: "Ẩn"
+  deletedsuccess: "Xóa thành công"
   layouts:
     header:
       help: "Trợ giúp"
@@ -55,3 +56,6 @@ vi:
       signin: "tại đây"
       remember: "Lưu tài khoản"
       forgot: "Quên mật khẩu?"
+  categories:
+    category_row:
+      delete: "Xóa địa điểm sẽ xóa các tour tồn tại. Xóa?"

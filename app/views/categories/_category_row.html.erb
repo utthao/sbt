@@ -3,5 +3,5 @@
   <td class = "text-center"><%= category_row.name %></td>
   <td class = "text-center"><%=  %></td>
   <th class = "text-center"><%= category_row.status %></th>
-  <td class = "text-center"><%= t("delete")%></td>
+  <td class = "text-center"><%= link_to t("delete"), category_row, method: :delete, data: { confirm: t(".delete") } %></td>
 </tr>

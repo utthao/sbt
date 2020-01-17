@@ -48,7 +48,7 @@ class ToursController < ApplicationController
   def destroy
     tour = Tour.find(params[:id])
     tour.destroy
-    flash[:success] = t("users.deleted")
+    flash[:success] = t("deletedsuccess")
     redirect_to tours_url
   end
   private
@@ -58,7 +58,7 @@ class ToursController < ApplicationController
   end
 
   def admin_account
-    redirect_to(root_url) unless current_account.role==0
+    redirect_to(root_url) unless admin_acount?
   end
 
   def tour_params

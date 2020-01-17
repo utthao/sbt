@@ -35,7 +35,7 @@
     <div class="col-md-12">
       <h4>Host by: <%= @tour.account.name %></h3>
     </div>
-    <% if current_account.role==0 %>
+    <% if admin_acount? %>
     <%= button_to t("edit"), edit_tour_path, method: :get, class: "btn btn-primary margin" %>
     <% else %>
     <div class="col-md-12 ">
