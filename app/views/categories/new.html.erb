@@ -1,0 +1,11 @@
+<% provide :title, t("category_manage") %>
+<h1 class = "text-center" ><%= t(".category_add") %></h1>
+<%= form_for(@category) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <br>
+  <%= f.submit "Add", class: "btn btn-primary right" %>
+<% end %>

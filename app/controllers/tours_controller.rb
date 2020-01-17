@@ -24,7 +24,7 @@ class ToursController < ApplicationController
     @tour.status = 1
     if @tour.save
      insert_data
-      flash[:info] = "DONE!"
+      flash[:info] = t("addsuccess")
       redirect_to tours_path
     else
       render :new
@@ -38,7 +38,7 @@ class ToursController < ApplicationController
   def update
     @tour = Tour.find(params[:id])
     if @tour.update_attributes(tour_params_edit)
-      flash[:success] = "DONE!"
+      flash[:success] = t("updatedsuccess")
       redirect_to tours_path
     else
       render :edit

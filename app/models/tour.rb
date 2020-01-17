@@ -12,7 +12,6 @@ class Tour < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :start_day, presence: true
   validates :end_day, presence: true
-  validates :image, presence: true
   accepts_nested_attributes_for :images
 
   enum status: {unvisible: 0, visible: 1}

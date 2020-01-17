@@ -17,6 +17,8 @@ vi:
   visible: "Hiện"
   unvisible: "Ẩn"
   deletedsuccess: "Xóa thành công"
+  addsuccess: "Thêm mới thành công"
+  updatedsuccess: "Sửa thành công"
   layouts:
     header:
       help: "Trợ giúp"

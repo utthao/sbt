@@ -1,0 +1,18 @@
+<% provide :title, t("category_manage") %>
+<h1 class = "text-center" ><%= t(".category_edit") %></h1>
+<%= form_for(@category) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <br>
+  <div class="row">
+    <div class="field col-md-6">
+        <%= f.label :status, t("status") %>
+        <%= f.select :status, options_for_select(edit_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+    </div>
+  </div>
+  <br>
+  <%= f.submit "Update", class: "btn btn-primary right" %>
+<% end %>
