@@ -18,7 +18,10 @@ vi:
   unvisible: "Ẩn"
   deletedsuccess: "Xóa thành công"
   addsuccess: "Thêm mới thành công"
+  addsuccessbook: "Bạn vừa đặt tour thành công"
   updatedsuccess: "Sửa thành công"
+  userbooked_manage: "Booked"
+  cancel: "Hủy"
   layouts:
     header:
       help: "Trợ giúp"
@@ -49,6 +52,7 @@ vi:
     show:
       reviewhere: "Bài đánh giá"
       commenthere: "Bình luận"
+      tourclosed: "Tour đã đóng!"
   sessions:
     index:
       login: "Đăng nhập"

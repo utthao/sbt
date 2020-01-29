@@ -1,0 +1,19 @@
+<% provide :title, t("userbooked_manage") %>
+  <h1 class = "text-center" ><%= t("userbooked_manage") %></h1>
+  <div class="col-md-12">
+    <table class = "table table-responsive-sm table-hover table-outline mb-0">
+      <thead class="thead-light">
+        <tr>
+          <th class = "text-center"></th>
+          <th class = "text-center"><%= t"title" %></th>
+          <th class = "text-center"><%= t"bookday" %></th>
+          <th class = "text-center"><%= t"status" %></th>
+          <th class = "text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "user_booking_row", collection: @user_booking_rows %>
+      </tbody>
+    </table>
+    <%= will_paginate @user_booking_rows %>
+  </div>

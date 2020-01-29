@@ -51,6 +51,7 @@ class ToursController < ApplicationController
     flash[:success] = t("deletedsuccess")
     redirect_to tours_url
   end
+
   private
 
   def load_categories

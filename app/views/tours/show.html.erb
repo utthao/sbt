@@ -39,14 +39,22 @@
     <%= button_to t("edit"), edit_tour_path, method: :get, class: "btn btn-primary margin" %>
     <% else %>
     <div class="col-md-12 ">
-      <%= form_for(@booking, url: "#") do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+      <% if tour_can_book? %>
+        <%= form_for(@booking, url: user_bookings_path) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :amount, "People amount:" %>
-        <%= f.text_field :amount, class: 'form-control' %>
+          <%= f.hidden_field :tour_id, :value => @tour.id  %>
+          <%= f.hidden_field :tour_price, :value => @tour.price %>
 
-        <%= f.submit t("bookthis"), class: "btn btn-primary" %>
+          <%= f.label :amount, "People amount:" %>
+          <%= f.text_field :amount, class: 'form-control' %>
+
+          <%= f.submit t("bookthis"), class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <p class = "closedtour"><i> <%= t(".tourclosed") %> </i></p>
       <% end %>
+
     </div>
     <% end %>
   </div>
