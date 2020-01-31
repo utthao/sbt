@@ -22,6 +22,7 @@ navbar-inverse">
           <% if admin_acount? %>
             <li><%= link_to t("tour_manage"), tours_path %></li>
             <li><%= link_to t("category_manage"), categories_path %></li>
+            <li><%= link_to t("booked_manage"), bookings_path %></li>
           <% else %>
             <li><%= link_to t("userbooked_manage"), user_bookings_path %></li>
           <% end %>

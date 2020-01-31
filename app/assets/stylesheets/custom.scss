@@ -6,6 +6,7 @@
 body {
   padding-top: 60px;
   min-height:100%;
+  background-color: #cccccd;
 }
 footer{
   width:100%;
@@ -134,5 +135,9 @@ html {height:100%}
   text-align: center;
   border: 2px solid red;
   font-size: 25px;
+  color: red;
+}
+
+.red-p{
   color: red;
 }

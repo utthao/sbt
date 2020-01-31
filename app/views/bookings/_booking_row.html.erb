@@ -1,0 +1,14 @@
+<tr>
+  <td class = "text-center"><%= booking_row_counter +=1 %></td>
+  <td class = "text-center"><%= booking_row.account.email %></td>
+  <td class = "text-center"><%= booking_row.tour.title %></td>
+  <td class = "text-center"><%= booking_row.created_at.strftime("%Y %m %d") %></td>
+  <th class = "text-center"><%= booking_row.amount %></th>
+  <th class = "text-center"><%= booking_row.total_price %></th>
+  <th class = "text-center"><%= booking_row.status %></th>
+  <% if booking_row.tour.start_day.to_i > Time.now.to_i %>
+  <td class = "text-center"><%= link_to t("edit"),edit_booking_path(booking_row) %> </td>
+  <% else %>
+  <td class = "text-center"><p class ="red-p"> CLOSED </p></td>
+  <% end %>
+</tr>

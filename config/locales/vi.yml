@@ -8,6 +8,10 @@ vi:
   start_day: "Ngày bắt đầu: "
   end_day: "Ngày kết thúc: "
   price: "Giá: "
+  total_price: "Tổng tiền: "
+  bookday: "Ngày book:"
+  booker: "Người đặt:"
+  amount: "Số người:"
   image: "Hình ảnh: "
   add: "Tạo mới"
   delete: "Xóa"
@@ -21,7 +25,13 @@ vi:
   addsuccessbook: "Bạn vừa đặt tour thành công"
   updatedsuccess: "Sửa thành công"
   userbooked_manage: "Booked"
+  booked_manage: "Bookeds"
+  uncheck: "Chưa xem"
   cancel: "Hủy"
+  accept: "Xác nhận"
+  deny: "Từ chối"
+  booking.accepted: "Tour của bạn đã được xác nhận!"
+  booking.denied: "Tour của bạn đã bị từ chối!"
   layouts:
     header:
       help: "Trợ giúp"
@@ -39,7 +49,7 @@ vi:
     home:
       title: "Trang chủ"
       home: "Trang chủ"
-      welcome: "Chào mừng đén với Booking tour APP"
+      welcome: "SBT Project"
     help:
   base:
     title: "Booking App vi"
@@ -65,3 +75,6 @@ vi:
   categories:
     category_row:
       delete: "Xóa địa điểm sẽ xóa các tour tồn tại. Xóa?"
+  bookings:
+    edit:
+      phone_number: "Số điện thoại:"

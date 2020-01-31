@@ -1,0 +1,21 @@
+<% provide :title, t("booked_manage") %>
+<h1 class = "text-center" ><%= t(".status_edit") %></h1>
+  <div class="row">
+    <label ><%= t"booker" %></label>
+    <label ><%= @booking.account.email %></label>
+  </div>
+  <br>
+  <div class="row">
+    <label ><%= t(".phone_number") %></label>
+    <label ><%= @booking.account.phone_number %></label>
+  </div>
+  <br>
+<%= form_for @booking do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="row">
+    <%= f.label :status, t("status") %>
+    <%= f.select :status, options_for_select(edit_booking_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary right" %>
+<% end %>
