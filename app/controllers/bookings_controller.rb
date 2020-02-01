@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :check_close, only: [:edit]
 
   def index
     @booking_rows = Booking.paginate(page: params[:page], per_page: 20)
@@ -26,7 +27,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  private
+
   def booking_params_edit
     params.require(:booking).permit(:status)
+  end
+
+  def check_close
+    @booking = Booking.find_by id: params[:id]
+    redirect_to(bookings_path) if @booking.tour.start_day.to_i < Time.now.to_i
   end
 end

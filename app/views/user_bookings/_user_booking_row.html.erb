@@ -3,5 +3,12 @@
   <td class = "text-center"><%= user_booking_row.tour.title %></td>
   <td class = "text-center"><%= user_booking_row.created_at.strftime("%Y %m %d") %></td>
   <th class = "text-center"><%= user_booking_row.status %></th>
+  <% if user_booking_row.tour.start_day.to_i > Time.now.to_i %>
   <td class = "text-center"><%= link_to t("cancel") %></td>
+  <% else %>
+  <td class = "text-center"><p class ="red-p"> CLOSED </p></td>
+  <% end %>
+  <% if (user_booking_row.tour.start_day.to_i < Time.now.to_i) && user_booking_row.status=="accepted" %>
+    <th class = "text-center"><%= link_to "Review post", new_user_review_path(id: user_booking_row.tour.id) %></th>
+  <% end %>
 </tr>

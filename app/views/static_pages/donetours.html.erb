@@ -1,0 +1,11 @@
+<% provide :title, t(".home") %>
+  <div class="center jumbotron">
+    <h1><%= t(".welcome") %></h1>
+  </div>
+  <div class="col-md-12">
+    <h3>Tours</h3>
+        <ol class="tours">
+          <%= render @tours %>
+        </ol>
+  </div>
+<%= will_paginate @tours%>

@@ -10,7 +10,6 @@ class UserBookingsController < ApplicationController
       @booking = Booking.new(booking_params)
       @booking.account_id = current_account.id
       @booking.status = 0
-      byebug
      # @booking.total_price = @tour_price*@booking.amount
       if @booking.save
         flash[:info] = t("addsuccessbook")

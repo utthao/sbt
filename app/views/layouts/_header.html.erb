@@ -5,6 +5,7 @@ navbar-inverse">
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), root_path %></li>
+        <li><%= link_to t(".donetours"), donetours_path %></li>
         <li><%= link_to t(".help"), help_path %></li>
         <% if logged_in? %>
           <li class="dropdown">
