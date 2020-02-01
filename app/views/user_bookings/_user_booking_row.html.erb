@@ -4,7 +4,10 @@
   <td class = "text-center"><%= user_booking_row.created_at.strftime("%Y %m %d") %></td>
   <th class = "text-center"><%= user_booking_row.status %></th>
   <% if user_booking_row.tour.start_day.to_i > Time.now.to_i %>
-  <td class = "text-center"><%= link_to t("cancel") %></td>
+    <% if user_booking_row.status != "canceled" %>
+    <td class = "text-center"><%= link_to t("cancel"), user_booking_path(id: user_booking_row.id) , method: :delete, data: { confirm: "Sure?"}%></td>
+    <% else %>
+    <% end %>
   <% else %>
   <td class = "text-center"><p class ="red-p"> CLOSED </p></td>
   <% end %>

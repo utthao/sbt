@@ -5,5 +5,5 @@ class Booking < ApplicationRecord
   validates :tour_id , presence: true
   validates :amount, presence: true, numericality: true
 
-  enum status: {uncheck: 0, accepted: 1, denied: 2}
+  enum status: {uncheck: 0, accepted: 1, denied: 2, canceled: 3}
 end

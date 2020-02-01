@@ -15,6 +15,7 @@ class UserBookingsController < ApplicationController
         flash[:info] = t("addsuccessbook")
         redirect_to root_path
       else
+        flash[:success] = t("fail")
         redirect_to root_path
       end
 
@@ -28,9 +29,14 @@ class UserBookingsController < ApplicationController
 
   def destroy
     booking = Booking.find(params[:id])
-    booking.destroy
-    flash[:success] = t("deletedsuccess")
-    redirect_to user_bookings_path
+    booking.status = "canceled"
+    if booking.save
+      flash[:success] = t("cancelsuccess")
+      redirect_to user_bookings_path
+    else
+      flash[:success] = t("fail")
+      redirect_to user_bookings_path
+    end
   end
 
   private

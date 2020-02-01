@@ -28,11 +28,13 @@ vi:
   booked_manage: "Bookeds"
   uncheck: "Chưa xem"
   cancel: "Hủy"
+  cancelsuccess: "Hủy thành công"
   accept: "Xác nhận"
   deny: "Từ chối"
   booking.accepted: "Tour của bạn đã được xác nhận!"
   booking.denied: "Tour của bạn đã bị từ chối!"
   commenthere: "Bình luận"
+  fail: "Thao tác thất bại!"
   layouts:
     header:
       donetours: "Tours cũ"
