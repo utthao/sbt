@@ -1,0 +1,25 @@
+<% provide :title, t("user_review") %>
+<h1 class = "text-center" ><%= t(".edit_review") %><b><%= @tour.title %></b></h1>
+<%= form_for(@user_review, url: user_review_path) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :tour_id, :value => @tour.id %>
+
+  <div class="field">
+    <%= f.label :title, t("title") %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Write title here.." %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :content, t("content") %>
+    <%= f.text_area :content,class: "form-control", rows: "10", placeholder: "Write content here.." %>
+  </div>
+  <br>
+  <div class="field col-md-6">
+    <%= f.label :image, t("image") %>
+    <%= f.fields_for :images do |p| %>
+        <%= p.file_field :path, multiple: true, name: "images[path][]" %>
+    <% end %>
+  </div>
+  <br>
+  <%= f.submit "Post", class: "btn btn-primary right" %>
+<% end %>

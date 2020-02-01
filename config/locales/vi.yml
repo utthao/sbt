@@ -85,3 +85,5 @@ vi:
   user_reviews:
     new:
       write_review: "Viết đánh giá cho tour "
+    edit:
+      edit_review: "Chỉnh sửa đánh giá tour "

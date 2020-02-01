@@ -10,6 +10,12 @@
       </i></p>
     </section>
   </aside>
+  <% if review_owner? %>
+  <div class=" float-right ">
+      <%= button_to t("edit"), edit_user_review_path, :method => :get%>
+      <%= button_to t("delete"), user_review_path, :method => :delete %>
+  </div>
+  <% end %>
   <div class="col-md-12">
     <p><%= @review.content %></p>
   </div>
@@ -20,4 +26,3 @@
     <h2><%= t("commenthere") %>(<%= @review.comments.count %>)</h2>
   </div>
 </div>
-
