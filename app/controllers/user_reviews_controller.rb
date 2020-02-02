@@ -21,8 +21,8 @@ class UserReviewsController < ApplicationController
   end
 
   def edit
-    @tour = Tour.find_by id: params[:id]
     @user_review = Review.find_by id: params[:id]
+    @tour = Tour.find_by id: @user_review.tour_id
   end
 
   def update

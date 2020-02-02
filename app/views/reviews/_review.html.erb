@@ -1,14 +1,34 @@
-<% if review.tour.id == @tour.id %>
-<div class="col-md-12">
-  <li id="reviews-<%= review.id %>">
-    <span class="content">
-      <%= link_to review.title, review %>
-    </span>
-    <span class="img">
-    </span>
-    <span class="postedby">
-      Posted by <%= review.account.email %>.
-    </span>
-  </li>
-</div>
+<% if admin_acount? %>
+  <% if review.tour.id == @tour.id %>
+  <div class="col-md-12">
+    <li id="reviews-<%= review.id %>">
+      <span class="content">
+        <%= link_to review.title, review %>
+      </span>
+      <span class="img">
+      </span>
+      <span class="postedby">
+        Posted by <%= review.account.email %>.
+        <% if review.status == "unvisible" %>
+        <strong>*</strong>
+        <% end %>
+      </span>
+    </li>
+  </div>
+  <% end %>
+<% else %>
+  <% if review.tour.id == @tour.id && review.status == "visible" %>
+  <div class="col-md-12">
+    <li id="reviews-<%= review.id %>">
+      <span class="content">
+        <%= link_to review.title, review %>
+      </span>
+      <span class="img">
+      </span>
+      <span class="postedby">
+        Posted by <%= review.account.email %>.
+      </span>
+    </li>
+  </div>
+  <% end %>
 <% end %>

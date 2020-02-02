@@ -1,4 +1,5 @@
 vi:
+  home: "Trang chủ"
   tour_manage: "QL tour"
   category_manage: "QL địa điểm"
   title: "Tiêu đề: "
@@ -35,6 +36,7 @@ vi:
   booking.denied: "Tour của bạn đã bị từ chối!"
   commenthere: "Bình luận"
   fail: "Thao tác thất bại!"
+  like: "Thích"
   layouts:
     header:
       donetours: "Tours cũ"
@@ -45,7 +47,6 @@ vi:
       signin: "Đăng ký"
     application:
       title: "VI "
-      home: "Trang chủ"
       vi: "Tiếng Việt"
       en: "English"
   hello: "Xin chào"

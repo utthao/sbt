@@ -36,7 +36,7 @@
     <div class="field col-md-6">
       <%= f.label :image, t("image") %>
       <%= f.fields_for :images do |p| %>
-          <%= p.file_field :path, multiple: true, name: "images[path][]" %>
+          <%= p.file_field :path, multiple: true, name: "images[path][]", required: true%>
       <% end %>
     </div>
   </div>

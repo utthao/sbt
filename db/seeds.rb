@@ -6,7 +6,7 @@ Account.create!(name:  "Admin User",
              active_status: 1)
 
 Account.create!(name:  "Normal User",
-             email: "user@user.com",
+             email: "user2@user.com",
              password: "123321",
              password_confirmation: "123321",
              role: 1,

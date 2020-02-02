@@ -5,4 +5,5 @@ module BookingsHelper
      {id: "accepted", name: t("accept")},
      {id: "denied", name: t("deny")}]
   end
+
 end

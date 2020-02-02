@@ -4,16 +4,25 @@
     <section class="">
       <h1>
         <%= @review.title %>
+        <% if @review.status == "unvisible" %>
+        <strong>(*invisible)</strong>
+        <% end %>
       </h1>
       <p><i>
         <%= t(".postedat") %> <%= @review.created_at.to_datetime.strftime("%B %e, %Y at %I:%M %p") %>
       </i></p>
     </section>
   </aside>
-  <% if review_owner? %>
+  <% if review_owner?  %>
   <div class=" float-right ">
       <%= button_to t("edit"), edit_user_review_path, :method => :get%>
-      <%= button_to t("delete"), user_review_path, :method => :delete %>
+      <%= button_to t("delete"), user_review_path, :method => :delete, data: { confirm: "Sure?"} %>
+  </div>
+  <% end %>
+  <% if admin_acount?  %>
+  <div class=" float-right ">
+    <%= button_to t("edit"), edit_review_path, :method => :get%>
+      <%= button_to t("delete"), user_review_path, :method => :delete, data: { confirm: "Sure?"} %>
   </div>
   <% end %>
   <div class="col-md-12">
@@ -22,7 +31,10 @@
   <div class="col-md-12 float-right">
     <p>Post by <%= @review.account.email %></p>
   </div>
-  <div class="reviews col-md-6">
+  <div class="reviews col-md-12">
+    <%= link_to t("like"), root_path %> (<%= @review.likes.count %>)
+  </div>
+  <div class="reviews col-md-12">
     <h2><%= t("commenthere") %>(<%= @review.comments.count %>)</h2>
   </div>
 </div>
