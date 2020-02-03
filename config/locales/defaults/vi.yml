@@ -14,6 +14,9 @@ vi:
       setting: Cài Đặt
       logout: Đăng Xuất
       users: Người dùng
+      tours: Chuyến đi
+      foods: Món ăn
+      news: Tin tức
   accounts:
     create_account: "Tạo mới tài khoản thành công"
     edit_account: "chỉnh sửa thông tin thành công"

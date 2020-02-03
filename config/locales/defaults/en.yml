@@ -16,6 +16,9 @@ en:
       setting: Settings
       logout: Logout
       users: Users
+      tours: Tours
+      foods: Foods
+      news: News
   accounts:
     create_account: "Create account success"
     edit_account: "Edit account is success"
