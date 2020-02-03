@@ -1,4 +1,4 @@
-vi:
+en:
   layouts:
     header:
       help: "Help"
@@ -6,11 +6,12 @@ vi:
       signup: "Sign up"
       account: "More"
       signin: "Signup"
+      vi: "Tiếng Việt"
+      en: "English"
     application:
       title: "VI "
       home: "Home"
-      vi: "Tiếng Việt"
-      en: "English"
+
   hello: "Hello"
   static_pages:
     home:

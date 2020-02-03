@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :user_reviews
   resources :reviews
+  resources :likes
+  resources :accounts
 end

@@ -1,4 +1,5 @@
 class UserBookingsController < ApplicationController
+  before_action :check_booking_accepted, only: [:destroy]
 
   def index
     @user_booking_rows = Booking.where(account_id: current_account).paginate(page: params[:page], per_page: 20)
@@ -43,4 +44,13 @@ class UserBookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:amount, :tour_id)
   end
+
+  def check_booking_accepted
+    booking = Booking.find(params[:id])
+    if booking.status == "accepted"
+      flash[:danger] = t("haveaccepted")
+      redirect_to user_bookings_path
+    end
+  end
+
 end

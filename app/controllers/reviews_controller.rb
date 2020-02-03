@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def show
+    @like = current_account.likes.build
     @review = Review.find_by id: params[:id]
   end
 

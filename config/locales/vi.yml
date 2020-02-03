@@ -37,6 +37,9 @@ vi:
   commenthere: "Bình luận"
   fail: "Thao tác thất bại!"
   like: "Thích"
+  liker: " người thích"
+  haveaccepted: "Không thể hủy vì tour đã được duyệt!"
+  havecanceled: "Không thể thao tác vì tour này đã được hủy!"
   layouts:
     header:
       donetours: "Tours cũ"

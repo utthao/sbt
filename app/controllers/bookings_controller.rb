@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :check_close, only: [:edit]
+  before_action :check_canceled, only: [:edit]
 
   def index
     @booking_rows = Booking.paginate(page: params[:page], per_page: 20)
@@ -36,5 +37,13 @@ class BookingsController < ApplicationController
   def check_close
     @booking = Booking.find_by id: params[:id]
     redirect_to(bookings_path) if @booking.tour.start_day.to_i < Time.now.to_i
+  end
+
+  def check_canceled
+    @booking = Booking.find(params[:id])
+    if @booking.status == "canceled"
+      flash[:danger] = t("havecanceled")
+      redirect_to bookings_path
+    end
   end
 end
