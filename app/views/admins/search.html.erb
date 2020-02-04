@@ -1,0 +1,10 @@
+<% provide :title, "search_user" %>
+  <div>
+    <%= render "shared/search_form" %>
+  </div>
+  <div class="row">
+    <%= render partial: "account", collection: @users_search %>
+  </div>
+  <div class="container">
+    <%= will_paginate @users_search %>
+  </div>

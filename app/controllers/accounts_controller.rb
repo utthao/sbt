@@ -6,6 +6,12 @@ class AccountsController < ApplicationController
     @accounts = Account.paginate page: params[:page],  per_page: Settings.size.page
   end
 
+  def search
+    @users_search = Account.search(params[:name]).newest.paginate(
+      page: params[:page], per_page: Settings.paginate.accounts
+    )
+  end
+
   def show; end
 
   def new

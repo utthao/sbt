@@ -23,6 +23,8 @@ class Account < ApplicationRecord
   validates :password, presence: true, length:
     {minimum: Settings.password_min}, on: :reset_password
   enum role: {admin: 0, user: 1}
+  scope :search, ->(name){where "name LIKE ?", "%#{name}%"}
+  scope :newest, ->{order create_at: :desc}
 
   class << self
     def digest(string)
