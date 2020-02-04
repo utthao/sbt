@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  get "users/new"
   root "static_pages#home"
   get "/donetours", to: "static_pages#donetours"
   get "/help", to: "static_pages#help"
@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :reviews
   resources :likes
   resources :accounts
+  mount Sidekiq::Web, at: "/sidekiq"
 end

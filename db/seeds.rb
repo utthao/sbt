@@ -17,17 +17,17 @@ Category.create!(name:  "Hue", status: 1)
 Category.create!(name:  "Hoi An", status: 0)
 Category.create!(name:  "Hoi An", status:0)
 
-10.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  Account.create!(name:  name,
-               email: email,
-               password: password,
-               password_confirmation: password,
-               role: 1,
-               active_status: 1)
-end
+# 10.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@railstutorial.org"
+#   password = "password"
+#   Account.create!(name:  name,
+#                email: email,
+#                password: password,
+#                password_confirmation: password,
+#                role: 1,
+#                active_status: 1)
+# end
 
 # Tour.create!(account_id: 1, category_id: 1, title: "This is test tour", content: "This is test content ", price: 9999999, status: 1)
 # Tour.create!(account_id: 2, category_id: 2, title: "This is test tour2", content: "This is test content2 ", price: 9999999, status: 1)

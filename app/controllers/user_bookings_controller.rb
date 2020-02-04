@@ -14,6 +14,9 @@ class UserBookingsController < ApplicationController
      # @booking.total_price = @tour_price*@booking.amount
       if @booking.save
         flash[:info] = t("addsuccessbook")
+        start_day = @booking.tour.start_day
+        byebug ################################################################ xử lí logic
+        AutoUpdateBookingStatusJob.set(wait: 10.seconds).perform_later(1) #tự động chuyển status nếu cách start_day 1 ngày mà vẫn uncheck
         redirect_to root_path
       else
         flash[:success] = t("fail")
