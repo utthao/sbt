@@ -6,6 +6,7 @@ class ToursController < ApplicationController
     @tour = Tour.find_by id: params[:id]
     @review_items = Review.all.paginate(page: params[:page], per_page: 6)
     @booking = Booking.new
+    @ratting = Ratting.new
     @images = @tour.images
   end
 

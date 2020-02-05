@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :user_reviews
   resources :reviews
   resources :likes
+  resources :rattings
   resources :accounts
   mount Sidekiq::Web, at: "/sidekiq"
 end

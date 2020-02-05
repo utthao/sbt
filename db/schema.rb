@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_034543) do
     t.text "title"
     t.text "content"
     t.string "image"
-    t.float "avg_rate"
-    t.integer "rate_amount"
+    t.float "avg_rate", default: 0.0
+    t.integer "rate_amount", default: 0
     t.bigint "price"
     t.integer "status"
     t.datetime "start_day"

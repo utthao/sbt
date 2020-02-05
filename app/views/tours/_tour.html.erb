@@ -8,10 +8,10 @@
       <%= link_to tour.title, tour %>
     </span>
     <span class="rate">
-      <% if tour.avg_rate.nil? %>
+      <% if tour.avg_rate <= 1 %>
         <%= t(".norate")%>
       <% else %>
-        <% for i in 0.1..(tour.avg_rate.count-1)%>
+        <% for i in 1..(tour.avg_rate)%>
           <span class="fa fa-star checked"></span>
         <% end %>
       <% end %>

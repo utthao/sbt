@@ -53,6 +53,19 @@
         <% end %>
       <% else %>
         <p class = "closedtour"><i> <%= t(".tourclosed") %> </i></p>
+        <div class="row">
+          <%= form_for(@ratting, url: rattings_path) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.hidden_field :tour_id, :value => @tour.id  %>
+
+            <%= f.label :star, t("rate") %>
+            <br>
+            <%= f.select :star, options_for_select(ratting.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+            <br>
+            <%= f.submit t("rate"), class: "btn btn-primary right", data: { confirm: "Sure?"} %>
+          <% end %>
+        </div>
       <% end %>
 
     </div>

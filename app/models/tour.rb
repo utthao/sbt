@@ -9,10 +9,12 @@ class Tour < ApplicationRecord
   validates :category_id , presence: true
   validates :title, presence: true, length: { maximum: 140 }
   validates :content, presence: true
+  validates :avg_rate, numericality: true
+  validates :rate_amount, numericality: true
   validates :price, presence: true, numericality: true
   validates :start_day, presence: true
   validates :end_day, presence: true
-  validate :valid_day
+  # validate :valid_day
   #validate :validates_images
   accepts_nested_attributes_for :images
 
