@@ -10,8 +10,14 @@ module SessionsHelper
     end
   end
 
-  def logged_in?
-    session[:account_id].present?
+  def verify_admin
+    redirect_to(root_url) unless current_account.admin?
+  end
+
+  def forget(account)
+    account.forget
+    cookies.delete(:account_id)
+    cookies.delete(:remember_token)
   end
 
   def log_out

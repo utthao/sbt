@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+<<<<<<< HEAD
     <%= link_to "SUN Booking Tour", "#", id: "logo" %>
   <nav>
     <ul class="nav navbar-nav navbar-right">
@@ -28,6 +29,12 @@
       <li><%= link_to t(".signup"), signup_path %></li>
       <li><%= link_to t("english"), locale: Settings.en %></li>
       <li><%= link_to t("vietnamese"), locale: Settings.vi %></li>
+      <li>
+          <div class="language">
+            <%= image_tag "usa.png" %> <%= link_to t(".en"), locale:"en" %> |
+            <%= image_tag "vietnam.png" %> <%= link_to t(".vi"), locale:"vi" %>
+          </div>
+        </li>
     </ul>
   </nav>
   </div>

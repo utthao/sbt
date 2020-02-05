@@ -42,11 +42,10 @@ class AccountsController < ApplicationController
                                  :password_confirmation)
   end
 
-  # def load_account
-  #   @account = Account.find_by(params[:id])
-  #   return if @account
-  #   flash[:error] = t(".content_error")
-  #   redirect_to :index
-  # end
-
+  def load_account
+    @account = Account.find_by(params[:id])
+    return if @account
+    flash[:error] = t(".content_error")
+    redirect_to :index
+  end
 end

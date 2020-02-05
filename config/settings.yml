@@ -3,6 +3,8 @@ en: "en"
 vi: "vi"
 name_in_users_max: 255
 email_in_users_max: 50
-password_min: 8
+password_min: 6
 size:
   page: 10
+paginate:
+  tours: 8

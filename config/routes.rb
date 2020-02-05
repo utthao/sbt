@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|vi/ do
-    root "static_pages#home"
-    get "/signup", to: "accounts#new"
-    post "/signup", to: "accounts#create"
-    get "/profile", to: "accounts#show"
-    get "setting", to: "accounts#edit"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
-    resources :accounts
-  end
+
+  get 'users/new'
+  root "static_pages#home"
+  get "/donetours", to: "static_pages#donetours"
+  get "/help", to: "static_pages#help"
+  get "/signup", to: "accounts#new"
+  post "/signup", to: "accounts#create"
+  delete "/logout",to: "sessions#destroy"
+  get "/search", to: "tours#search"
+  post "/search", to: "tours#search"
+  resources :sessions
+  resources :tours
+  resources :user_bookings
+  resources :bookings
+  resources :categories
+  resources :user_reviews
+  resources :reviews
+  resources :likes
+  resources :accounts
 end
 
