@@ -1,2 +1,36 @@
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      help: "Help"
+      login: "Log in"
+      signup: "Sign up"
+      account: "More"
+      signin: "Signup"
+      vi: "Tiếng Việt"
+      en: "English"
+    application:
+      title: "VI "
+      home: "Home"
+
+  hello: "Hello"
+  static_pages:
+    home:
+      title: "Home"
+      home: "Home"
+      welcome: "This is cover Booking tour APP"
+    help:
+  base:
+    title: "Booking App eng"
+  tours:
+    tour:
+      norate: "No Rate"
+      postedby: "Posted by "
+  sessions:
+    index:
+      login: "Login"
+      email: "Email "
+      password: "Password"
+      newaccount: "Sign up "
+      signin: "here"
+      remember: "Remember me"
+      forgot: "Forgot password?"

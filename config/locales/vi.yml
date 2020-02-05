@@ -1,0 +1,110 @@
+vi:
+  home: "Trang chủ"
+  name: "Tên"
+  role: "Chức năng"
+  phone_number: "Điện thoại"
+  tour_manage: "QL tour"
+  category_manage: "QL địa điểm"
+  disable: "VHH"
+  active: "Hoạt động"
+  title: "Tiêu đề: "
+  content: "Nội dung: "
+  category: "Địa điểm"
+  postedby: "Người đăng: "
+  editsuccess: "Sửa thành công"
+  start_day: "Ngày bắt đầu: "
+  end_day: "Ngày kết thúc: "
+  revenue: "Doanh thu"
+  accnotactived: "Tài khoản đang bị vô hiệu hóa"
+  revenue_month: "Doanh thu theo số tháng"
+  view_revenue: "Xem"
+  price: "Giá: "
+  total_price: "Tổng tiền: "
+  bookday: "Ngày book:"
+  booker: "Người đặt:"
+  amount: "Số người:"
+  booked_tour: "Tour đã accept"
+  image: "Hình ảnh: "
+  add: "Tạo mới"
+  delete: "Xóa"
+  edit: "Chỉnh sửa"
+  status: "Trạng thái"
+  bookthis: "Book this!"
+  visible: "Hiện"
+  yourated: "Bạn đã đánh giá rồi! Cám ơn!"
+  unvisible: "Ẩn"
+  deletedsuccess: "Xóa thành công"
+  addsuccess: "Thêm mới thành công"
+  addsuccessbook: "Bạn vừa đặt tour thành công"
+  updatedsuccess: "Sửa thành công"
+  userbooked_manage: "Booked"
+  booked_manage: "Bookeds"
+  youbookedyet: "Book rồi mà book chi nữa pa?"
+  didnotbook: "Chưa book mà đòi đánh giá cha?"
+  rate: "Đánh giá"
+  uncheck: "Chưa xem"
+  cancel: "Hủy"
+  cancelsuccess: "Hủy thành công"
+  accept: "Xác nhận"
+  deny: "Từ chối"
+  booking.accepted: "Tour của bạn đã được xác nhận!"
+  booking.denied: "Tour của bạn đã bị từ chối!"
+  commenthere: "Bình luận"
+  fail: "Thao tác thất bại!"
+  like: "Thích"
+  liker: " người thích"
+  haveaccepted: "Không thể hủy vì tour đã được duyệt!"
+  havecanceled: "Không thể thao tác vì tour này đã được hủy!"
+  layouts:
+    header:
+      donetours: "Tours cũ"
+      help: "Trợ giúp"
+      login: "Đăng nhập"
+      signup: "Đăng ký"
+      account: "Tài khoản"
+      signin: "Đăng ký"
+    application:
+      title: "VI "
+      vi: "Tiếng Việt"
+      en: "English"
+  hello: "Xin chào"
+  static_pages:
+    home:
+      title: "Trang chủ"
+      home: "Trang chủ"
+      welcome: "SBT Project"
+    help:
+  base:
+    title: "Booking App vi"
+  tours:
+    tour:
+      norate: "Không có đánh giá"
+      postedby: "Đăng bởi "
+    new:
+      tour_add: "Đăng Tour"
+    show:
+      reviewhere: "Bài đánh giá"
+      tourclosed: "Tour đã đóng!"
+  sessions:
+    index:
+      login: "Đăng nhập"
+      email: "Email "
+      password: "Mật khẩu"
+      newaccount: "Tạo mới "
+      signin: "tại đây"
+      remember: "Lưu tài khoản"
+      forgot: "Quên mật khẩu?"
+  categories:
+    category_row:
+      delete: "Xóa địa điểm sẽ xóa các tour tồn tại. Xóa?"
+  bookings:
+    edit:
+      phone_number: "Số điện thoại:"
+  reviews:
+    show:
+      postedat: "Đăng vào "
+  user_reviews:
+    new:
+      write_review: "Viết đánh giá cho tour "
+    edit:
+      edit_review: "Chỉnh sửa đánh giá tour "
