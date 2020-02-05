@@ -1,5 +1,5 @@
 class AutoUpdateBookingStatusJob < ApplicationJob
-  queue_as :auto_update_booking_status_job.rb
+  queue_as :auto_update_booking_status_job
 
   def perform(id)
       booking = Booking.find_by id: id

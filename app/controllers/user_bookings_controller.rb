@@ -15,8 +15,8 @@ class UserBookingsController < ApplicationController
       if @booking.save
         flash[:info] = t("addsuccessbook")
         start_day = @booking.tour.start_day
-        byebug ################################################################ xử lí logic
-        AutoUpdateBookingStatusJob.set(wait: 10.seconds).perform_later(1) #tự động chuyển status nếu cách start_day 1 ngày mà vẫn uncheck
+        days_before_start = (start_day.to_i - Time.now.to_i)/ (24 * 3600)
+        AutoUpdateBookingStatusJob.set(wait: days_before_start.days).perform_later(@booking.id) #tự động chuyển status nếu cách start_day 1 ngày mà vẫn uncheck
         redirect_to root_path
       else
         flash[:success] = t("fail")
