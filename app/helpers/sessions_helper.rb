@@ -33,6 +33,10 @@ module SessionsHelper
     end
   end
 
+  def verify_admin
+    redirect_to(root_url) unless current_account.admin?
+  end
+
   def forget(account)
     account.forget
     cookies.delete(:account_id)

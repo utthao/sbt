@@ -9,6 +9,12 @@ class ToursController < ApplicationController
     @images = @tour.images
   end
 
+  def search
+    @tours_search = Tour.search(params[:title]).newest.paginate(
+      page: params[:page], per_page: Settings.paginate.tours
+    )
+  end
+
   def index
     @tour_rows = Tour.all.paginate(page: params[:page], per_page: 10)
   end

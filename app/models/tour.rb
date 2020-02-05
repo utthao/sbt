@@ -16,6 +16,9 @@ class Tour < ApplicationRecord
   #validate :validates_images
   accepts_nested_attributes_for :images
 
+  scope :search, ->(title){where "title LIKE ?", "%#{title}%"}
+  scope :newest, ->{order created_at: :desc}
+
   enum status: {unvisible: 0, visible: 1}
 
   private
