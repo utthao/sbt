@@ -10,6 +10,8 @@
         <option value="12">12</option>
       </select>
       <%= form.submit t("view_revenue"), class: "btn btn-primary" %>
-        <%= form.text_field :revenue, class: "form-control",:disabled => true %>
+      <br>
+      <span id = "revenue"><%= @revenue %></span>
+      <span id = "bookings_amount"><%= @count_done_bookings %></span>
     <% end %>
   </div>

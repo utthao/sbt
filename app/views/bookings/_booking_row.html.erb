@@ -5,7 +5,15 @@
   <td class = "text-center"><%= booking_row.created_at.strftime("%Y %m %d") %></td>
   <th class = "text-center"><%= booking_row.amount %></th>
   <th class = "text-center"><%= booking_row.total_price %></th>
-  <th class = "text-center"><%= booking_row.status %></th>
+  <% if booking_row.status=="denied" %>
+   <th class = "text-center danger">
+  <% elsif booking_row.status == "accepted" %>
+   <th class = "text-center success">
+  <% else %>
+   <th class = "text-center">
+  <% end %>
+   <%= booking_row.status %>
+  </th>
   <% if booking_row.tour.start_day.to_i > Time.now.to_i %>
   <td class = "text-center"><%= link_to t("edit"),edit_booking_path(booking_row) %> </td>
   <% else %>
