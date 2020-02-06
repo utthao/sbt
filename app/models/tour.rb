@@ -14,7 +14,7 @@ class Tour < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :start_day, presence: true
   validates :end_day, presence: true
-  # validate :valid_day
+  validate :valid_day
   #validate :validates_images
   accepts_nested_attributes_for :images
 

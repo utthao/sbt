@@ -11,6 +11,7 @@
               <li><%= link_to t("tour_manage"), tours_path %></li>
               <li><%= link_to t("category_manage"), categories_path %></li>
               <li><%= link_to t("booked_manage"), bookings_path %></li>
+              <li><%= link_to t("revenue"), revenue_index_path %></li>
             <% else %>
           <li class="dropdown">
             <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>

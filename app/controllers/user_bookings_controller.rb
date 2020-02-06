@@ -12,11 +12,11 @@ class UserBookingsController < ApplicationController
         flash[:danger] = t("youbookedyet")
         redirect_to root_path
       else
-        @tour_price = params.require(:booking).permit :tour_price
+        @tour_price = params[:booking][:tour_price].to_i
         @booking = Booking.new(booking_params)
         @booking.account_id = current_account.id
         @booking.status = 0
-       # @booking.total_price = @tour_price*@booking.amount
+       @booking.total_price = @tour_price*@booking.amount
         if @booking.save
           flash[:info] = t("addsuccessbook")
           start_day = @booking.tour.start_day

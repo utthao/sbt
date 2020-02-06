@@ -28,6 +28,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def view_revenue
+    @booking_rows = Booking.paginate(page: params[:page], per_page: 20)
+  end
+
   private
 
   def booking_params_edit

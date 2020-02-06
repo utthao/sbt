@@ -1,0 +1,15 @@
+<% provide :title, t("revenue") %>
+  <h1 class = "text-center" ><%= t("revenue") %></h1>
+  <div class="col-md-12">
+    <%= form_with url: revenue_index_path do |form| %>
+      <%= form.label :month, t("revenue_month") %>
+      <select id="month" name="month">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+      </select>
+      <%= form.submit t("view_revenue"), class: "btn btn-primary" %>
+        <%= form.text_field :revenue, class: "form-control",:disabled => true %>
+    <% end %>
+  </div>
