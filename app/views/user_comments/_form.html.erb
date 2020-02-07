@@ -1,0 +1,12 @@
+<div>
+  <%= form_for(@comment, url: user_comments_path) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= hidden_field_tag :review_id, @review.id %>
+    <%= hidden_field_tag :account_id, @current_account.id %>
+
+    <%= f.text_area :content,class: "form-control", rows: "8", placeholder: "Write content here.." %>
+    <br>
+    <%= f.submit "Post", class: "btn btn-primary right" %>
+  <% end %>
+</div>

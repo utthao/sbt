@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   resources :rattings
   resources :accounts
   resources :revenue
+  resources :user_comments
   mount Sidekiq::Web, at: "/sidekiq"
 end

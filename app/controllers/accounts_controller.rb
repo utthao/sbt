@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :verify_admin, only: [:index, :destroy]
+  #before_action :verify_admin, only: [:index, :destroy]
   before_action :load_account, except: [:create]
 
   def index
@@ -14,32 +14,51 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new account_params
+    @account.active_status = 1
     if @account.save
       log_in @account
-      flash[:success] = t(".create_account")
+      flash[:success] = t("addsuccess")
       redirect_to root_url
     else
       render :new
     end
   end
 
-  # def edit; end
+  def edit;
+    @account = @account = Account.find(params[:id])
+  end
 
-  # def update
-  #   @account = Account.find_by(params[:id])
-  #   if @account.update_attributes(account_params)
-  #     flash[:success] = t(".edit_account")
-  #     redirect_to @account
+  def update
+    @account = Account.find_by id: (params[:id])
+    byebug
+    if @account.update_attributes(edit_account_params)
+      flash[:success] = t("editsuccess")
+      redirect_to @account
+    else
+      render "edit"
+    end
+  end
+
+  # def destroy
+  #   @account = Account.find(params[:id])
+  #   if @account.destroy
+  #     flash[:success] = t("deletedsuccess")
+  #     redirect_to accounts_path
   #   else
-  #     render "edit"
+  #     flash[:danger] = t("fail")
+  #     redirect_to accounts_path
   #   end
   # end
 
   private
 
   def account_params
-    params.require(:account).permit(:name, :email, :password,
+    params.require(:account).permit(:name, :email, :password, :phone_number,
                                  :password_confirmation)
+  end
+
+  def edit_account_params
+    params.require(:account).permit(:name, :active_status)
   end
 
   def load_account

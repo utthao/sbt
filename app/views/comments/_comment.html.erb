@@ -1,0 +1,11 @@
+<% if comment.review.id == @review.id %>
+<div class="col-md-8 comment">
+    <span class="postedby">
+      <i><%= comment.account.email %>:</i>
+    </span>
+    <span class="content">
+      <%= comment.content %>
+    </span>
+
+</div>
+<% end %>

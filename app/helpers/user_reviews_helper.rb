@@ -15,8 +15,12 @@ module UserReviewsHelper
   end
 
   def review_owner?
-    if @review.account_id == current_account.id
-      return true
+    if logged_in?
+      if @review.account_id == current_account.id
+        return true
+      end
+    else
+      return false
     end
   end
 end
