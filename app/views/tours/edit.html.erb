@@ -1,49 +1,103 @@
-<% provide :title, t("tour_manage") %>
-<h1 class = "text-center" ><%= t(".tour_edit") %></h1>
-<%= form_for @tour do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-  <div class="dropdown">
-    <%= f.label :category, t("category") %>
-    <%= f.select :category_id, options_for_select(@categories.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :title, t("title") %>
-    <%= f.text_field :title, class: "form-control", placeholder: "Write title here.." %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :content, t("content") %>
-    <%= f.text_area :content,class: "form-control", rows: "10", placeholder: "Write content here.." %>
-  </div>
-  <br>
-  <div class="row">
-    <div class="field col-md-6">
-      <%= f.label :start_day, t("start_day") %>
-      <%= f.date_select :start_day,class: "form-control "%>
+<% if check_tour_validay(@tour.id) %>
+  <% provide :title, t("tour_manage") %>
+  <h1 class = "text-center" ><%= t(".tour_edit") %></h1>
+  <%= form_for @tour do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="dropdown">
+      <%= f.label :category, t("category") %>
+      <%= f.select :category_id, options_for_select(@categories.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
     </div>
-    <div class="field col-md-6">
-      <%= f.label :end_day, t("end_day") %>
-      <%= f.date_select :end_day,class: "form-control" %>
+    <br>
+    <div class="field">
+      <%= f.label :title, t("title") %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Write title here.." %>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="field col-md-6">
-      <%= f.label :price, t("price") %>
-      <%= f.text_area :price,class: "form-control",cols: "20", rows: "1" %>
+    <br>
+    <div class="field">
+      <%= f.label :content, t("content") %>
+      <%= f.text_area :content,class: "form-control", rows: "10", placeholder: "Write content here.." %>
     </div>
-    <div class="field col-md-6">
-      <%= f.label :image, t("image") %>
-      <%= f.file_field :path, multiple: true, name: "images[path][]", class: "form-control"%>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+        <%= f.label :start_day, t("start_day") %>
+        <%= f.date_select :start_day,class: "form-control "%>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :end_day, t("end_day") %>
+        <%= f.date_select :end_day,class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="field col-md-6">
-        <%= f.label :status, t("status") %>
-        <%= f.select :status, options_for_select(edit_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+        <%= f.label :price, t("price") %>
+        <%= f.text_area :price,class: "form-control",cols: "20", rows: "1" %>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :image, t("image") %>
+        <%= f.file_field :path, multiple: true, name: "images[path][]", class: "form-control"%>
+      </div>
     </div>
-  </div>
-  <%= f.submit "Update", class: "btn btn-primary right" %>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+          <%= f.label :status, t("status") %>
+          <%= f.select :status, options_for_select(edit_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+      </div>
+    </div>
+    <%= f.submit "Update", class: "btn btn-primary right" %>
+  <% end %>
+
+
+<% else %>
+  <% provide :title, t("tour_manage") %>
+  <h1 class = "text-center" ><%= t(".tour_edit") %></h1>
+  <%= form_for @tour do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="dropdown">
+      <%= f.label :category, t("category") %>
+      <%= f.select :category_id, options_for_select(@categories.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {}, :disabled => true %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :title, t("title") %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Write title here..", :disabled => true %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :content, t("content") %>
+      <%= f.text_area :content,class: "form-control", rows: "10", placeholder: "Write content here..", :disabled => true %>
+    </div>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+        <%= f.label :start_day, t("start_day") %>
+        <%= f.date_select :start_day,class: "form-control ", :disabled => true%>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :end_day, t("end_day") %>
+        <%= f.date_select :end_day,class: "form-control", :disabled => true %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+        <%= f.label :price, t("price") %>
+        <%= f.text_area :price,class: "form-control",cols: "20", rows: "1", :disabled => true %>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :image, t("image") %>
+        <%= f.file_field :path, multiple: true, name: "images[path][]", class: "form-control", :disabled => true%>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="field col-md-6">
+          <%= f.label :status, t("status") %>
+          <%= f.select :status, options_for_select(edit_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+      </div>
+    </div>
+    <%= f.submit "Update", class: "btn btn-primary right" %>
+  <% end %>
 <% end %>

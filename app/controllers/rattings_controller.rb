@@ -10,7 +10,7 @@ class RattingsController < ApplicationController
     tour.avg_rate = (tour.avg_rate*tour.rate_amount + stars)/(tour.rate_amount + 1)
     tour.rate_amount += 1
     if ratting.save && tour.update_columns(avg_rate: tour.avg_rate, rate_amount: tour.rate_amount)
-      flash[:success] = t("addsuccess")
+      flash[:success] = t("ratesuccess")
       redirect_to root_path
     else
       flash[:danger] = t("fail")
@@ -22,12 +22,15 @@ class RattingsController < ApplicationController
 
   def can_rate?
     booking = Booking.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first
-    if !booking.present? || !booking.status = "accepted"
+    if !booking.present?
       flash[:danger] = t("didnotbook")
       redirect_to root_path
-      if Ratting.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first.present?
-        flash[:danger] = t("yourated")
-      end
+    elsif booking.status != "accepted"
+      flash[:danger] = t("didnotaccept")
+      redirect_to root_path
+    end
+    if Ratting.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first.present?
+      flash[:danger] = t("yourated")
     end
   end
 

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(account) : forget(account)
         redirect_back_or account
       else
-        message  = t "accounts.accnotactived"
+        message  = t "accnotactived"
         flash[:warning] = message
         redirect_to root_url
       end

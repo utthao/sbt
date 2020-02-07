@@ -5,13 +5,12 @@
   <%= f.text_field :name, class: "form-control" %>
 
   <%= f.label :email %>
-  <%= f.email_field :email, class: "form-control" %>
+  <%= f.email_field :email, class: "form-control", :disabled => true %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control" %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: "form-control" %>
-
+  <br>
+  <%= f.label :status %>
+  <%= f.select :active_status, options_for_select(edit_account_active_status.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
+  <br>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+

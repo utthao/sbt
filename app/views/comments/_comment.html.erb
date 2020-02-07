@@ -1,0 +1,16 @@
+<% if comment.review.id == @review.id %>
+<div class="col-md-8 comment">
+  <span class="postedby">
+    <i><%= comment.account.email %>:</i>
+  </span>
+  <span class="content">
+    <%= comment.content %>
+  </span>
+  <% if check_own_comment(comment.id) %>
+  <span class="right">
+    <%= link_to t("delete"), user_comment_path(comment_id: comment.id) , method: :delete, data: { confirm: "Sure?"} %>
+  </span>
+  <% else %>
+  <% end %>
+</div>
+<% end %>

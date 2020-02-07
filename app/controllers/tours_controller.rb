@@ -40,10 +40,29 @@ class ToursController < ApplicationController
 
   def edit
     @tour = Tour.find_by id: params[:id]
+    if @tour.start_day.to_i < Time.now.to_i
+      flash[:warning] = t("invalidday")
+    end
   end
 
   def update
     @tour = Tour.find(params[:id])
+    if @tour.start_day.to_i < Time.now.to_i
+      if @tour.update_attributes(params[:status])
+        flash[:success] = t("updatedsuccess")
+        redirect_to tours_path
+      else
+        render :edit
+      end
+    else
+      if @tour.update_attributes(tour_params_edit)
+        flash[:success] = t("updatedsuccess")
+        redirect_to tours_path
+      else
+        render :edit
+      end
+    end
+
     if @tour.update_attributes(tour_params_edit)
       flash[:success] = t("updatedsuccess")
       redirect_to tours_path

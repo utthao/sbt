@@ -1,7 +1,25 @@
+<% if current_account == account %>
+<tr class = "info">
+<% else %>
 <tr>
-  <li>
-    <td class = "text-center"><%= account_counter +=1 %></td>
-    <td class = "text-center"><%= link_to account.name, account %></td>
-  </li>
+<% end %>
+  <td class = "text-center"><%= account_counter +=1 %></td>
+  <td class = "text-center"><%= link_to account.name, account %></td>
+  <td class = "text-center"><%= account.email %></td>
+  <td class = "text-center"><%= account.role %></td>
+  <td class = "text-center"><%= account.phone_number %></td>
+  <td class = "text-center"><%= current_bookings(account.id) %></td>
+  <% if account.active_status==0 %>
+   <td class = "text-center danger">
+    <p>Disable</p>
+  <% elsif account.active_status == 1 %>
+   <td class = "text-center success">
+    <p>Active</p>
+  <% end %>
+  </td>
+  <% if check_current_login(account.id) %>
+  <td></td>
+  <% else %>
+  <td class = "text-center"><%= link_to t("edit"),edit_account_path(account) %></td>
+  <% end %>
 </tr>
-

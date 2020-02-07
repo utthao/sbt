@@ -41,5 +41,14 @@
   </div>
   <div class="reviews col-md-12">
     <h2><%= t("commenthere") %>(<%= @review.comments.count %>)</h2>
+    <% if logged_in? %>
+      <%= render 'user_comments/form' %>
+    <% else %>
+      <h3>Đăng nhập để bình luận</h3>
+    <% end %>
+    <span id = "user_comments"><%= @comments %></span>
+    <%= render @comment_items %>
   </div>
 </div>
+
+
