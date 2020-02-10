@@ -32,6 +32,8 @@ gem "will_paginate", ">=3.1.7"
 gem "carrierwave"
 gem "mini_magick",  ">=4.7.0"
 gem "figaro"
+gem "omniauth-facebook" # Facebook authentication
+gem "koala", "~> 1.10.0rc" # Facebook API
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 

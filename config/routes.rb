@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete "/logout",to: "sessions#destroy"
   get "/search", to: "tours#search"
   post "/search", to: "tours#search"
+  get "auth/facebook", as: "auth_provider"
+  get "auth/facebook/callback", to: "users#login"
   resources :sessions
   resources :tours
   resources :user_bookings

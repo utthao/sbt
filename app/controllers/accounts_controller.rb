@@ -6,6 +6,10 @@ class AccountsController < ApplicationController
     @accounts = Account.paginate page: params[:page],  per_page: Settings.size.page
   end
 
+  def login
+    @user = User.koala(request.env['omniauth.auth']['credentials'])
+  end
+
   def show; end
 
   def new
@@ -30,12 +34,11 @@ class AccountsController < ApplicationController
 
   def update
     @account = Account.find_by id: (params[:id])
-    byebug
     if @account.update_attributes(edit_account_params)
       flash[:success] = t("editsuccess")
       redirect_to @account
     else
-      render "edit"
+      render :edit
     end
   end
 
