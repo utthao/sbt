@@ -1,32 +1,31 @@
-class SessionsController < ApplicationController
-  def index; end
+class SessionsController < Devise::SessionsController
 
   def new
-    return unless logged_in?
-    redirect_to root_path
+    super
   end
 
   def create
-    account = Account.find_by(email: params[:session][:email].downcase)
-    if account && account.authenticate(params[:session][:password])
+    account = Account.find_by(email: params[:account][:email].downcase)
+    if account && account.valid_password?(params[:account][:password])
       if account.active_status==1
-        log_in account
-        params[:session][:remember_me] == '1' ? remember(account) : forget(account)
-        redirect_back_or account
+        super
       else
         message  = t "accnotactived"
         flash[:warning] = message
         redirect_to root_url
       end
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to root_url
+      flash[:danger] = 'Invalid email/password combination'
+      redirect_to new_account_session_path
     end
   end
 
+  def update
+    super
+  end
+
   def destroy
-    log_out if logged_in?
-    redirect_to root_url
+    super
   end
 
 end

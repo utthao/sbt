@@ -38,16 +38,16 @@ class AccountsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @account = Account.find(params[:id])
-  #   if @account.destroy
-  #     flash[:success] = t("deletedsuccess")
-  #     redirect_to accounts_path
-  #   else
-  #     flash[:danger] = t("fail")
-  #     redirect_to accounts_path
-  #   end
-  # end
+  def destroy
+    @account = Account.find(params[:id])
+    if @account.destroy
+      flash[:success] = t("deletedsuccess")
+      redirect_to accounts_path
+    else
+      flash[:danger] = t("fail")
+      redirect_to accounts_path
+    end
+  end
 
   private
 

@@ -62,13 +62,6 @@ class ToursController < ApplicationController
         render :edit
       end
     end
-
-    if @tour.update_attributes(tour_params_edit)
-      flash[:success] = t("updatedsuccess")
-      redirect_to tours_path
-    else
-      render :edit
-    end
   end
 
   def destroy
@@ -85,7 +78,7 @@ class ToursController < ApplicationController
   end
 
   def admin_account
-    redirect_to(root_url) unless admin_acount?
+    redirect_to(root_url) unless current_account.admin?
   end
 
   def tour_params

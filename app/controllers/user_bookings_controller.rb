@@ -7,7 +7,7 @@ class UserBookingsController < ApplicationController
   end
 
   def create
-    if logged_in?
+    if account_signed_in?
       if !check_have_book
         flash[:danger] = t("youbookedyet")
         redirect_to root_path

@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
 
   private
   def admin_account
-    redirect_to(root_url) unless admin_acount?
+    redirect_to(root_url) unless current_account.admin?
   end
 
   def category_params

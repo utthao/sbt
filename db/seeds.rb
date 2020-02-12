@@ -1,8 +1,9 @@
-Account.create!(name:  "Admin User",
+Account.create!(name: "Admin User",
              email: "admin@admin.com",
              password: "123321",
              password_confirmation: "123321",
              role: 0,
+             confirmed_at: "2019-03-06 00:00:00" ,
              active_status: 1)
 
 Account.create!(name:  "Normal User",
@@ -10,6 +11,7 @@ Account.create!(name:  "Normal User",
              password: "123321",
              password_confirmation: "123321",
              role: 1,
+             confirmed_at: "2019-03-06 00:00:00" ,
              active_status: 1)
 
 Account.create!(name:  "Normal User",
@@ -17,6 +19,7 @@ Account.create!(name:  "Normal User",
              password: "123321",
              password_confirmation: "123321",
              role: 1,
+             confirmed_at: "2019-03-06 00:00:00" ,
              active_status: 1)
 
 Category.create!(name:  "Da Nang", status: 1)

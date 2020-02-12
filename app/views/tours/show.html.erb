@@ -35,7 +35,7 @@
     <div class="col-md-12">
       <h4>Host by: <%= @tour.account.name %></h3>
     </div>
-    <% if admin_acount? %>
+    <% if current_account.admin? %>
     <%= button_to t("edit"), edit_tour_path, method: :get, class: "btn btn-primary margin" %>
     <% else %>
     <div class="col-md-12 ">
@@ -49,7 +49,7 @@
           <%= f.label :amount, "People amount:" %>
           <%= f.text_field :amount, class: 'form-control' %>
           <br>
-          <% if logged_in? %>
+          <% if account_signed_in? %>
             <%= f.submit t("bookthis"), class: "btn btn-primary", data: { confirm: "Sure?"} %>
           <% else %>
             <%= f.submit t("needlogin"), class: "btn btn-primary", :disabled => true %>
@@ -67,7 +67,7 @@
             <br>
             <%= f.select :star, options_for_select(ratting.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
             <br>
-            <% if logged_in? %>
+            <% if account_signed_in? %>
               <%= f.submit t("rate"), class: "btn btn-primary left", data: { confirm: "Sure?"} %>
             <% else %>
               <%= f.submit t("needlogin"), class: "btn btn-primary left", :disabled => true %>
