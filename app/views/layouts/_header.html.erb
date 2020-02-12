@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), root_path %></li>
-        <li><%= link_to t(".donetours"), donetours_path %></li>
+
         <% if logged_in? %>
           <% if admin_acount? %>
               <li><%= link_to t(".users"), accounts_path %></li>
