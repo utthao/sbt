@@ -7,8 +7,6 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.string :avatar
       t.integer :active_status
       t.string :activation_digest
-      t.string :remember_digest
-      t.string :password_digest
       t.integer :role
 
       t.timestamps

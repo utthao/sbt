@@ -62,7 +62,6 @@ vi:
       login: "Đăng nhập"
       signup: "Đăng ký"
       account: "Tài khoản"
-      signin: "Đăng ký"
     application:
       title: "VI "
       vi: "Tiếng Việt"
