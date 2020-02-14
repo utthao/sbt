@@ -19,7 +19,7 @@
       <%= button_to t("delete"), user_review_path, :method => :delete, data: { confirm: "Sure?"} %>
   </div>
   <% end %>
-  <% if admin_acount?  %>
+  <% if account_signed_in? && current_account.admin?  %>
   <div class=" float-right ">
     <%= button_to t("edit"), edit_review_path, :method => :get%>
       <%= button_to t("delete"), user_review_path, :method => :delete, data: { confirm: "Sure?"} %>
@@ -41,7 +41,7 @@
   </div>
   <div class="reviews col-md-12">
     <h2><%= t("commenthere") %>(<%= @review.comments.count %>)</h2>
-    <% if logged_in? %>
+    <% if account_signed_in? %>
       <%= render 'user_comments/form' %>
     <% else %>
       <h3>Đăng nhập để bình luận</h3>

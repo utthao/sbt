@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def show
     @like = Like.new
-    @review = Review.find_by id: params[:id]
+    @review = Review.find_by_id(params[:id])
     @comment_items = Comment.all.order("created_at DESC")
     @comment = Comment.new
   end

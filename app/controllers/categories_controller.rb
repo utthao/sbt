@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :admin_account,  only: [:destroy, :index, :new]
+  authorize_resource
+  #before_action :admin_account,  only: [:destroy, :index, :new]
 
   def index
     @category_rows = Category.all.paginate(page: params[:page], per_page: 20)

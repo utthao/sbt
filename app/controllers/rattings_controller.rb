@@ -28,9 +28,9 @@ class RattingsController < ApplicationController
     elsif booking.status != "accepted"
       flash[:danger] = t("didnotaccept")
       redirect_to root_path
-    end
-    if Ratting.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first.present?
+    elsif Ratting.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first.present?
       flash[:danger] = t("yourated")
+      redirect_to root_path
     end
   end
 

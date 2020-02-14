@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  authorize_resource
   before_action :check_close, only: [:edit]
   before_action :check_canceled, only: [:edit]
 

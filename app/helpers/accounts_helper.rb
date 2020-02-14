@@ -12,4 +12,17 @@ module AccountsHelper
   def check_current_login(id)
     return true if current_account.id == id
   end
+
+  def account_owner(id)
+    if account_signed_in?
+      if current_account.admin? || current_account.id == id
+      else
+        flash[:danger] = t("no_permit")
+        redirect_to root_url
+      end
+    else
+      flash[:danger] = t("no_permit")
+      redirect_to root_url
+    end
+  end
 end

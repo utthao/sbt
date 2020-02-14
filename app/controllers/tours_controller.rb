@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
-  before_action :admin_account,  only: [:destroy, :index, :new]
+  # before_action :admin_account,  only: [:destroy, :index, :new]
+  authorize_resource
   before_action :load_categories, only: [:new, :create, :edit]
 
   def show
@@ -78,7 +79,7 @@ class ToursController < ApplicationController
   end
 
   def admin_account
-    redirect_to(root_url) unless current_account.admin?
+      redirect_to(root_url) unless (account_signed_in? && current_account.admin?)
   end
 
   def tour_params

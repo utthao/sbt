@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  authorize_resource
   #before_action :verify_admin, only: [:index, :destroy]
   before_action :load_account, except: [:create]
 
@@ -6,7 +7,8 @@ class AccountsController < ApplicationController
     @accounts = Account.paginate page: params[:page],  per_page: Settings.size.page
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @account = Account.new
@@ -26,6 +28,7 @@ class AccountsController < ApplicationController
 
   def edit;
     @account = @account = Account.find(params[:id])
+    account_owner(@account.id)
   end
 
   def update

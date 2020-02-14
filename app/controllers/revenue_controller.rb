@@ -1,6 +1,7 @@
 class RevenueController < ApplicationController
 
   def index
+    redirect_to root_path unless account_signed_in? && current_account.admin?
     @revenue = 0
   end
 

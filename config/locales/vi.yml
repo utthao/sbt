@@ -56,6 +56,7 @@ vi:
   didnotbook: "Chưa book mà đòi đánh giá cha?"
   rate: "Đánh giá"
   uncheck: "Chưa xem"
+  no_permit: "Không có quyền truy cập!"
   cancel: "Hủy"
   cancelsuccess: "Hủy thành công"
   accept: "Xác nhận"
@@ -68,6 +69,11 @@ vi:
   liker: " người thích"
   haveaccepted: "Không thể hủy vì tour đã được duyệt!"
   havecanceled: "Không thể thao tác vì tour này đã được hủy!"
+  devise:
+    sessions:
+      account:
+        signed_out: "Đăng xuất thành công!"
+        signed_in: "Đăng nhập thành công!"
   layouts:
     header:
       donetours: "Tours cũ"

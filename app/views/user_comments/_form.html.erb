@@ -3,7 +3,10 @@
     <%= render "shared/error_messages", object: f.object %>
 
     <%= hidden_field_tag :review_id, @review.id %>
-    <%= hidden_field_tag :account_id, @current_account.id %>
+
+    <% if account_signed_in? %>
+      <%= hidden_field_tag :account_id, current_account.id %>
+    <% end %>
 
     <%= f.text_area :content,class: "form-control", rows: "8", placeholder: "Write content here.." %>
     <br>

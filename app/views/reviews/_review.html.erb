@@ -1,4 +1,4 @@
-<% if admin_acount? %>
+<% if account_signed_in? && current_account.admin? %>
   <% if review.tour.id == @tour.id %>
   <div class="col-md-12">
     <li id="reviews-<%= review.id %>">
