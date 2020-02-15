@@ -3,6 +3,8 @@
   <td class = "text-center"><%= booking_row.account.email %></td>
   <td class = "text-center"><%= booking_row.tour.title %></td>
   <td class = "text-center"><%= booking_row.created_at.strftime("%Y %m %d") %></td>
+  <td class = "text-center"><%= booking_row.start_day.strftime("%Y %m %d") %></td>
+    <td class = "text-center"><%= booking_row.end_day.strftime("%Y %m %d") %></td>
   <th class = "text-center"><%= booking_row.amount %></th>
   <th class = "text-center"><%= booking_row.total_price %></th>
   <% if booking_row.status=="denied" %>

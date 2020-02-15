@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   before_action :check_canceled, only: [:edit]
 
   def index
-    @booking_rows = Booking.paginate(page: params[:page], per_page: 20)
+    @search = Booking.ransack params[:q]
+    @booking_rows = @search.result.order("created_at DESC").paginate page: params[:page],  per_page: Settings.size.page
   end
 
   def edit

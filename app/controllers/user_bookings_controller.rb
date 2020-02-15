@@ -16,7 +16,9 @@ class UserBookingsController < ApplicationController
         @booking = Booking.new(booking_params)
         @booking.account_id = current_account.id
         @booking.status = 0
-       @booking.total_price = @tour_price*@booking.amount
+        @booking.total_price = @tour_price*@booking.amount
+        @booking.start_day = @booking.tour.start_day
+        @booking.end_day = @booking.tour.end_day
         if @booking.save
           flash[:info] = t("addsuccessbook")
           start_day = @booking.tour.start_day

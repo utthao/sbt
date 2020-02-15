@@ -17,4 +17,5 @@ module ToursHelper
     @tour = Tour.find_by id: params[:id]
     return true if @tour.start_day.to_i > Time.now.to_i
   end
+
 end

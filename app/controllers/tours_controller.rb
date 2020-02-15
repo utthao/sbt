@@ -18,7 +18,8 @@ class ToursController < ApplicationController
   end
 
   def index
-    @tour_rows = Tour.all.paginate(page: params[:page], per_page: 10)
+    @search = Tour.ransack params[:q]
+    @tour_rows = @search.result.order("created_at DESC").paginate page: params[:page],  per_page: Settings.size.page
   end
 
   def new

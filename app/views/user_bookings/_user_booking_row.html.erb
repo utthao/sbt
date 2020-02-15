@@ -2,6 +2,9 @@
   <td class = "text-center"><%= user_booking_row_counter +=1 %></td>
   <td class = "text-center"><%= link_to user_booking_row.tour.title, tour_path(id: user_booking_row.tour.id) %></td>
   <td class = "text-center"><%= user_booking_row.created_at.strftime("%Y %m %d") %></td>
+  <td class = "text-center"><%= user_booking_row.start_day.strftime("%Y %m %d") %></td>
+  <td class = "text-center"><%= user_booking_row.end_day.strftime("%Y %m %d") %></td>
+  <td class = "text-center"><%= user_booking_row.total_price %></td>
   <% if user_booking_row.status=="denied" %>
    <th class = "text-center danger">
   <% elsif user_booking_row.status == "accepted" %>

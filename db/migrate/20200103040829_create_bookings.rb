@@ -6,6 +6,8 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.bigint :account_id
       t.bigint :tour_id
       t.integer :amount
+      t.datetime :start_day
+      t.datetime :end_day
       t.bigint :total_price
       t.integer :status
       t.string :rated

@@ -8,9 +8,11 @@
           <th class = "text-center"><%= t"booker" %></th>
           <th class = "text-center"><%= t"title" %></th>
           <th class = "text-center"><%= t"bookday" %></th>
-          <th class = "text-center"><%= t"amount" %></th>
-          <th class = "text-center"><%= t"total_price" %></th>
-          <th class = "text-center"><%= t"status" %></th>
+          <th class = "text-center"><%= t"start_day" %></th>
+          <th class = "text-center"><%= t"end_day" %></th>
+          <th class = "text-center"><%= sort_link @search, :amount, t("amount") %></th>
+          <th class = "text-center"><%= sort_link @search, :total_price, t("total_price") %></th>
+          <th class = "text-center"><%= sort_link @search, :status, t("status") %></th>
           <th class = "text-center"></th>
           <th class = "text-center"></th>
         </tr>
@@ -21,3 +23,4 @@
     </table>
     <%= will_paginate @booking_rows %>
   </div>
+

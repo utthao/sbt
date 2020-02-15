@@ -54,9 +54,9 @@ Image.create!(tour_id: 4, path: "da-lat-mua-co-hong-2.jpeg")
 Image.create!(tour_id: 4, path: "dl2.jpeg")
 Image.create!(tour_id: 5, path: "dl2.jpeg")
 
-Booking.create!(account_id: 3, tour_id: 1, amount: 5, total_price: nil, status: "accepted", rated: nil)
-Booking.create!(account_id: 3, tour_id: 4, amount: 7, total_price: nil, status: "denied", rated: nil)
-Booking.create!(account_id: 3, tour_id: 2, amount: 7, total_price: nil, status: "accepted", rated: nil)
-Booking.create!(account_id: 3, tour_id: 3, amount: 9, total_price: nil, status: "uncheck", rated: nil)
+Booking.create!(account_id: 3, tour_id: 1, amount: 5, start_day: "2020-02-06 00:00:00", end_day: "2020-02-08 00:00:00" , total_price: nil, status: "accepted", rated: nil)
+Booking.create!(account_id: 3, tour_id: 4, amount: 7, start_day: "2019-02-06 00:00:00", end_day: "2019-02-06 00:00:00", total_price: nil, status: "denied", rated: nil)
+Booking.create!(account_id: 3, tour_id: 2, amount: 7, start_day: "2020-02-10 00:00:00", end_day: "2020-02-13 00:00:00", total_price: nil, status: "accepted", rated: nil)
+Booking.create!(account_id: 3, tour_id: 3, amount: 9, start_day: "2020-03-06 00:00:00", end_day: "2020-03-06 00:00:00", total_price: nil, status: "uncheck", rated: nil)
 
 

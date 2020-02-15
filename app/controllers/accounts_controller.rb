@@ -4,7 +4,8 @@ class AccountsController < ApplicationController
   before_action :load_account, except: [:create]
 
   def index
-    @accounts = Account.paginate page: params[:page],  per_page: Settings.size.page
+    @search = Account.ransack params[:q]
+    @accounts = @search.result.paginate page: params[:page],  per_page: Settings.size.page
   end
 
   def show
