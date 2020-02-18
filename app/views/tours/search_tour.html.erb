@@ -1,0 +1,11 @@
+<%= search_form_for @search, class: "form-inline" do |f| %>
+  <div class="form-group">
+      <%= f.label :name, 'Tour Name:' %>
+        <%= f.text_field :name_cont, class: "form-control" %><br>
+    </div> <!-- Tìm kiếm theo name có chứa ... -->
+    <div class="form-group">
+        <%= f.label :"abc", 'Age >= ' %>
+        <%= f.text_field :"abc", class: "form-control" %><br>
+    </div> <!-- Tìm kiếm theo age lớn hơn bằng ...  -->
+    <%= f.submit 'Search', class: "btn btn-default" %>
+<% end %>

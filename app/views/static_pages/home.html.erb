@@ -2,25 +2,6 @@
   <div class="center jumbotron">
     <h1><%= t(".welcome") %></h1>
   </div>
-  <div class="col-md-12 search-div">
-    <%= search_form_for @search, url: root_path, local: true, class: "input-group", method: "get" do |f| %>
-    <div class = "field">
-      <%= f.search_field :title_or_start_day_cont, class: "form-control search-input" %>
-    </div>
-    <div class = "field">
-      <%= f.label :category_name_cont, t("category") %>
-      <%= f.select :category_id_cont, options_for_select(@categories.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {} %>
-    </div>
-    <div class = "field">
-      <%= f.label :start_day_gteq, t("form_day") %>
-      <%= f.date_select :start_day_gteq, class: "form-control "%>
-      <%= f.label :start_day_gteq, t("to_day") %>
-      <%= f.date_select :start_day_lteq %>
-    </div>
-    <div class="actions"><%= f.submit t"search" %></div>
-    <% end %>
-  </div>
-  <div class="col-md-12">
     <h3>Tours</h3>
         <ol class="tours">
           <%= render @tours %>
