@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   authorize_resource
-  #before_action :admin_account,  only: [:destroy, :index, :new]
+  # before_action :admin_account,  only: [:destroy, :index, :new]
 
   def index
     @category_rows = Category.all.paginate(page: params[:page], per_page: 20)
@@ -14,7 +16,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.status = 1
     if @category.save
-      flash[:info] = t("addsuccess")
+      flash[:info] = t('addsuccess')
       redirect_to categories_path
     else
       render :new
@@ -28,7 +30,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find_by id: params[:id]
     if @category.update_attributes(category_params_edit)
-      flash[:success] = t("updatedsuccess")
+      flash[:success] = t('updatedsuccess')
       redirect_to categories_path
     else
       render :edit
@@ -38,11 +40,12 @@ class CategoriesController < ApplicationController
   def destroy
     category = Category.find(params[:id])
     category.destroy
-    flash[:success] = t("deletedsuccess")
+    flash[:success] = t('deletedsuccess')
     redirect_to categories_url
   end
 
   private
+
   def admin_account
     redirect_to(root_url) unless current_account.admin?
   end

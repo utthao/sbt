@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RattingsController < ApplicationController
   before_action :can_rate?, only: [:create]
 
@@ -7,13 +9,13 @@ class RattingsController < ApplicationController
     ratting.status = 1
     stars = params[:ratting][:star].to_i
     tour = Tour.find(params[:ratting][:tour_id])
-    tour.avg_rate = (tour.avg_rate*tour.rate_amount + stars)/(tour.rate_amount + 1)
+    tour.avg_rate = (tour.avg_rate * tour.rate_amount + stars) / (tour.rate_amount + 1)
     tour.rate_amount += 1
     if ratting.save && tour.update_columns(avg_rate: tour.avg_rate, rate_amount: tour.rate_amount)
-      flash[:success] = t("ratesuccess")
+      flash[:success] = t('ratesuccess')
       redirect_to root_path
     else
-      flash[:danger] = t("fail")
+      flash[:danger] = t('fail')
       redirect_to root_path
     end
   end
@@ -23,13 +25,13 @@ class RattingsController < ApplicationController
   def can_rate?
     booking = Booking.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first
     if !booking.present?
-      flash[:danger] = t("didnotbook")
+      flash[:danger] = t('didnotbook')
       redirect_to root_path
-    elsif booking.status != "accepted"
-      flash[:danger] = t("didnotaccept")
+    elsif booking.status != 'accepted'
+      flash[:danger] = t('didnotaccept')
       redirect_to root_path
     elsif Ratting.where(account_id: current_account.id, tour_id: params[:ratting][:tour_id].to_i).first.present?
-      flash[:danger] = t("yourated")
+      flash[:danger] = t('yourated')
       redirect_to root_path
     end
   end

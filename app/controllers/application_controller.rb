@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
   protect_from_forgery with: :exception
@@ -10,9 +12,8 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-
   def default_url_options
-    {locale: I18n.locale}
+    { locale: I18n.locale }
   end
 
   protected
@@ -22,11 +23,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
-      @current_ability ||= Ability.new(current_account)
+    @current_ability ||= Ability.new(current_account)
   end
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do |_exception|
     redirect_to root_url
   end
-
 end

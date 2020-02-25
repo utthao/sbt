@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookingsController < ApplicationController
   authorize_resource
   before_action :check_close, only: [:edit]
@@ -5,7 +7,7 @@ class BookingsController < ApplicationController
 
   def index
     @search = Booking.ransack params[:q]
-    @booking_rows = @search.result.order("created_at DESC").paginate page: params[:page],  per_page: Settings.size.page
+    @booking_rows = @search.result.order('created_at DESC').paginate page: params[:page], per_page: Settings.size.page
   end
 
   def edit
@@ -18,12 +20,12 @@ class BookingsController < ApplicationController
     @tour_title = @booking.tour.title
     @tour_date = @booking.tour.start_day
     if @booking.update_attributes(booking_params_edit)
-      if params[:booking][:status] == "accepted"
+      if params[:booking][:status] == 'accepted'
         BookingNotiMailer.booking_accepted(@account, @tour_title, @tour_date).deliver_now
-      elsif params[:booking][:status] == "denied"
+      elsif params[:booking][:status] == 'denied'
         BookingNotiMailer.booking_denied(@account, @tour_title, @tour_date).deliver_now
       end
-      flash[:success] = t("updatedsuccess")
+      flash[:success] = t('updatedsuccess')
       redirect_to bookings_path
     else
       render :edit
@@ -47,8 +49,8 @@ class BookingsController < ApplicationController
 
   def check_canceled
     @booking = Booking.find(params[:id])
-    if @booking.status == "canceled"
-      flash[:danger] = t("havecanceled")
+    if @booking.status == 'canceled'
+      flash[:danger] = t('havecanceled')
       redirect_to bookings_path
     end
   end

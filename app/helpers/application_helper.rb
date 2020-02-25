@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def full_title page_title
-    base_title = I18n.t "base.title"
-    page_title.blank? ? base_title : (page_title << "|" << base_title)
+  def full_title(page_title)
+    base_title = I18n.t 'base.title'
+    page_title.blank? ? base_title : (page_title << '|' << base_title)
   end
 
   def tour_can_book?
@@ -22,5 +24,4 @@ module ApplicationHelper
     end
     flash_messages.join("\n").html_safe
   end
-
 end

@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class BookingNotiMailer < ApplicationMailer
-  def booking_accepted(account, tour_title, tour_date)
+  def booking_accepted(account, _tour_title, _tour_date)
     @account = account
-    mail to: account.email, subject: t("booking.accepted")
+    mail to: account.email, subject: t('booking.accepted')
   end
 
-  def booking_denied(account, tour_title, tour_date)
+  def booking_denied(account, _tour_title, _tour_date)
     @account = account
-    mail to: account.email, subject: t("booking.denied")
+    mail to: account.email, subject: t('booking.denied')
   end
-
 end

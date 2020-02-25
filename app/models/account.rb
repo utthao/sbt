@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class Account < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
-  VALID_PHONE_REGEX = /\A[\d]{10,}\z/i.freeze
-  DATA_TYPE_ACCOUNTS = %i(name email phone_number password password_confirmation active_status).freeze
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  VALID_PHONE_REGEX = /\A[\d]{10,}\z/i
+  DATA_TYPE_ACCOUNTS = %i[name email phone_number password password_confirmation active_status].freeze
   # attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :tours, dependent: :destroy
@@ -18,16 +20,16 @@ class Account < ApplicationRecord
   # validates :name, presence: true,
   # length: {maximum: Settings.name_in_users_max}
   validates :email, presence: true,
-    length: {maximum: Settings.email_in_users_max},
-    format: {with: VALID_EMAIL_REGEX},
-    uniqueness: {case_sensitive: false}
-  validates :phone_number, format: {with: VALID_PHONE_REGEX}, allow_blank: true
+                    length: { maximum: Settings.email_in_users_max },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  validates :phone_number, format: { with: VALID_PHONE_REGEX }, allow_blank: true
   # has_secure_password
   validates :password, presence: true, length:
-    {minimum: Settings.password_min}, allow_nil: true
+    { minimum: Settings.password_min }, allow_nil: true
   validates :password, presence: true, length:
-    {minimum: Settings.password_min}, on: :reset_password
-  enum role: {admin: 0, user: 1}
+    { minimum: Settings.password_min }, on: :reset_password
+  enum role: { admin: 0, user: 1 }
 
   # class << self
   #   def digest(string)

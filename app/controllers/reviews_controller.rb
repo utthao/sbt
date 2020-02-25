@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   def show
     @like = Like.new
     @review = Review.find_by_id(params[:id])
-    @comment_items = Comment.all.order("created_at DESC")
+    @comment_items = Comment.all.order('created_at DESC')
     @comment = Comment.new
   end
 
@@ -14,7 +16,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find_by id: params[:id]
     if @review.update_attributes(review_params_edit)
-      flash[:success] = t("updatedsuccess")
+      flash[:success] = t('updatedsuccess')
       redirect_to review_path
     else
       render :edit
@@ -22,6 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+
   def review_params_edit
     params.require(:review).permit(:status)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -19,9 +21,9 @@
 
 # Learn more: http://github.com/javan/whenever
 set :environment, :development
-set :output, "log/cron_job.log"
+set :output, 'log/cron_job.log'
 
 puts "Crontab is run on #{@environment}"
 every 2.minutes do
-   runner "AutoUpdatePointWhenever.perform"
+  runner 'AutoUpdatePointWhenever.perform'
 end

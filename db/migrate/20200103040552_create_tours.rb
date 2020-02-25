@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTours < ActiveRecord::Migration[5.2]
   def change
     create_table :tours do |t|
@@ -8,14 +10,14 @@ class CreateTours < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :content
       t.string :image
-      t.float :avg_rate, :default => 0
-      t.integer :rate_amount, :default => 0
+      t.float :avg_rate, default: 0
+      t.integer :rate_amount, default: 0
       t.bigint :price
       t.integer :status
       t.datetime :start_day
       t.datetime :end_day
       t.timestamps
     end
-    add_index :tours, [:account_id, :created_at]
+    add_index :tours, %i[account_id created_at]
   end
 end
